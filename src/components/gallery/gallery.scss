@@ -1,0 +1,62 @@
+.gallery {
+  background-color: #eae0d5;
+  background-image: url("https://www.transparenttextures.com/patterns/purty-wood.png");
+  padding: 3rem 0;
+
+  &-masonry {
+    column-count: 2;
+    column-gap: 1em;
+  }
+}
+
+.social-media {
+  align-items: center;
+  display: grid;
+  justify-content: center;
+  margin-bottom: 1rem;
+  padding: 2rem 0;
+  width: 100%;
+
+  &_icons {
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  &_text {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    text-align: center;
+  }
+}
+
+.item {
+  display: inline-block;
+  margin: 0 0 1em;
+  width: 100%;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+}
+
+@media (min-width: 760px) {
+  .social-media {
+    grid-auto-flow: column;
+    justify-content: space-around;
+
+    &_text {
+      justify-self: flex-end;
+      margin-top: 0;
+      text-align: right;
+      width: 75%;
+    }
+  }
+
+  .gallery-masonry {
+    column-count: 4;
+  }
+}
