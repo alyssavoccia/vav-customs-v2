@@ -27,3 +27,9 @@ ul {
 img {
   width: 100%;
 }
+
+@media (min-width: 760px) {
+  .container {
+    max-width: 1100px;
+  }
+}

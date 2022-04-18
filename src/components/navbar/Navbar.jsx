@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import './navbar.scss';
 import MiniLogo from '../../assets/mini-logo.png';
 
@@ -12,18 +14,18 @@ function Navbar() {
 
   return (
     <>
-      <div onClick={navToggle} class="menu-btn">
-        <i class="fas fa-bars fa-2x"></i>
+      <div onClick={navToggle} className="menu-btn">
+        <i className="fas fa-bars fa-2x"></i>
       </div>
-      <div class="nav-wrapper">
-        <nav class="main-nav container">
-          <img class="logo" src={MiniLogo} alt="Vav Customs Logo" />
-          <ul class={active}>
-            <li class="nav-link" onClick={navToggle}><a href="#home">Home</a></li>
-            <li class="nav-link" onClick={navToggle}><a href="#about">About</a></li>
-            <li class="nav-link" onClick={navToggle}><a href="#gallery">Gallery</a></li>
-            <li class="nav-link" onClick={navToggle}><a href="#home">Blog</a></li>
-            <li class="nav-link" onClick={navToggle}><a href="#gallery">Store</a></li>
+      <div className="nav-wrapper">
+        <nav className="main-nav container">
+          <img className="logo" src={MiniLogo} alt="Vav Customs Logo" />
+          <ul className={active}>
+            <li className="nav-link" onClick={navToggle}><HashLink smooth to='/#home'>Home</HashLink></li>
+            <li className="nav-link" onClick={navToggle}><HashLink smooth to='/#about'>About</HashLink></li>
+            <li className="nav-link" onClick={navToggle}><a href="#gallery">Gallery</a></li>
+            <li className="nav-link" onClick={navToggle}><a href="#home">Blog</a></li>
+            <li className="nav-link" onClick={navToggle}><Link to='/store'>Store</Link></li>
           </ul>
         </nav>
       </div>

@@ -1,0 +1,39 @@
+.about-me {
+  padding: 6rem 0;
+
+  &_content {
+    align-items: center;
+  display: grid;
+  font-size: 1.2rem;
+  font-weight: 300;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-rows: auto-fill;
+  justify-content: center;
+  }
+
+  &_title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+}
+
+.image-stack {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(4, 1fr);
+
+  &__item-bottom {
+    grid-column: 2 / -1;
+    grid-row: 1;
+  }
+
+  &__item-top {
+    grid-row: 1;
+    grid-column: 1 / span 2;
+    padding-top: 20%;
+    z-index: 1;
+  }
+}
