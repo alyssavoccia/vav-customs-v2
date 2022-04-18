@@ -1,6 +1,11 @@
+import './hero.scss';
+import VAVLogo from '../../assets/VAV-Customs-Logo.png';
+
 function Hero() {
   return (
-    <div>Hero</div>
+    <section className='hero'>
+      <img className="hero-logo" src={VAVLogo} alt="Vav Customs Logo" />
+    </section>
   )
 }
 

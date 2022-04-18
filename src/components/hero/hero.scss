@@ -1,0 +1,15 @@
+.hero {
+  align-content: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, .6)), url(../../assets/hero-bg.jpg);
+  background-size: cover;
+  background-position: top;
+  display: grid;
+  justify-content: center;
+  height: 95vh;
+}
+
+.hero-logo {
+  margin: 0 auto;
+  width: 100%;
+  z-index: 2;
+}

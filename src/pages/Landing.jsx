@@ -1,6 +1,10 @@
+import Hero from "../components/hero/Hero";
+
 function Landing() {
   return (
-    <div>Landing</div>
+    <>
+      <Hero />
+    </>
   )
 }
 
