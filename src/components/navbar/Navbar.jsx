@@ -24,7 +24,7 @@ function Navbar() {
             <li className="nav-link" onClick={navToggle}><HashLink smooth to='/#home'>Home</HashLink></li>
             <li className="nav-link" onClick={navToggle}><HashLink smooth to='/#about'>About</HashLink></li>
             <li className="nav-link" onClick={navToggle}><HashLink smooth to='/#gallery'>Gallery</HashLink></li>
-            <li className="nav-link" onClick={navToggle}><a href="#home">Blog</a></li>
+            <li className="nav-link" onClick={navToggle}><Link to='/blog-posts'>Blog</Link></li>
             <li className="nav-link" onClick={navToggle}><Link to='/store'>Store</Link></li>
           </ul>
         </nav>

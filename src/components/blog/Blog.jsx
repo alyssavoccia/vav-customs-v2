@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './blog.scss';
 
 function Blog() {
@@ -8,10 +9,10 @@ function Blog() {
           <p class="blog-content_text-main">Interested in reading more?</p>
           <p>Check out my blog!</p>
         </div>
-        <a className="btn" href="#">See Blog Posts</a>
+        <Link className='btn' to='/blog-posts'>See Blog Posts</Link>
       </div>
     </section>
   )
 }
 
-export default Blog
+export default Blog;

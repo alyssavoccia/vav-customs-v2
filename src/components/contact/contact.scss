@@ -1,0 +1,28 @@
+.contact {
+  background-color: #222;
+  color: #fff;
+
+  &-info {
+    align-content: center;
+    display: grid;
+    grid-template-rows: repeat(2, 150px);
+    height: 50vh;
+    justify-content: center;
+  }
+
+  &-title {
+    align-self: end;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+}
+
+.social-icons {
+  align-self: start;
+  padding: 1rem;
+  text-align: center;
+
+  & i {
+    padding: 1rem;
+  }
+}
