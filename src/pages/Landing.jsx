@@ -5,7 +5,6 @@ import Hero from "../components/hero/Hero";
 import About from "../components/about/About";
 import Gallery from "../components/gallery/Gallery";
 import Blog from "../components/blog/Blog";
-import Contact from "../components/contact/Contact";
 
 function Landing() {
   const [galleryImages, setGalleryImages] = useState([]);
@@ -35,7 +34,6 @@ function Landing() {
       <About />
       <Gallery galleryImages={galleryImages} />
       <Blog />
-      <Contact />
     </>
   )
 }
