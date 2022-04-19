@@ -1,6 +1,8 @@
+import BlogPostsGrid from '../components/blog-posts-grid/BlogPostsGrid';
+
 function BlogPosts() {
   return (
-    <div>BlogPosts</div>
+    <BlogPostsGrid />
   )
 }
 

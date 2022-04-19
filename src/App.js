@@ -13,7 +13,7 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
 
 function App() {
   return (
-    <>
+    <div className="app">
       <Navbar />
       <Routes>
         <Route path="/" element={<Landing />} />
@@ -21,7 +21,7 @@ function App() {
         <Route path='/store' element={<Store />} />
       </Routes>
       <Contact />
-    </>
+    </div>
   );
 }
 

@@ -1,0 +1,23 @@
+.blog-posts {
+  padding-top: 75px;
+  text-align: center;
+
+  &_title {
+    font-size: 48px;
+    margin-top: 75px;
+  }
+
+  &-no-items {
+    padding-top: 100px;
+
+    &_title {
+      font-size: 36px;
+      font-weight: 400;
+    }
+
+    &_info {
+      font-size: 24px;
+      font-weight: 300;
+    }
+  }
+}

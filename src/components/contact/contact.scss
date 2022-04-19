@@ -1,6 +1,8 @@
 .contact {
   background-color: #222;
   color: #fff;
+  display: grid;
+  margin-top: auto;
 
   &-info {
     align-content: center;

@@ -8,6 +8,16 @@ body {
   color: #222;
   font-family: Roboto, sans-serif;
   line-height: 1.5;
+  width: 100%;
+}
+
+#root {
+  display: grid;
+  height: 100vh;
+}
+
+.app {
+  display: grid;
 }
 
 a {
