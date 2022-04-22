@@ -3,7 +3,7 @@ import SmoothScroll from 'smooth-scroll';
 import Navbar from "./components/navbar/Navbar";
 import Landing from "./pages/Landing";
 import BlogPosts from "./pages/BlogPosts";
-import Store from "./pages/Store";
+import Store from "./pages/store/Store";
 import Contact from "./components/contact/Contact";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
