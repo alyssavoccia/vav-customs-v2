@@ -28,8 +28,13 @@
     }
 
     &-buy {
+      align-items: center;
       display: grid;
-      grid-template-columns: 1fr 2fr;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    label {
+      font-weight: 500;
     }
 
     &-quantity {
@@ -38,7 +43,7 @@
       font-size: 16px;
       padding: 5px;
       text-align: center;
-      width: 50px;
+      width: 75px;
 
       &:focus {
         outline: none;
