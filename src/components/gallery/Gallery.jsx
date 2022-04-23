@@ -1,6 +1,7 @@
 import './gallery.scss';
+import GalleryData from './GalleryData';
 
-function Gallery({galleryImages}) {
+function Gallery() {
   return (
     <section className="gallery" id="gallery">
       <div className="social-media container">
@@ -13,10 +14,10 @@ function Gallery({galleryImages}) {
         </div>
       </div>
       <div className="gallery-masonry container">
-        { galleryImages &&
-            galleryImages.map((img, i) => {
+        { GalleryData.map((img, i) => {
+          console.log(img.src)
               return (
-                <img className='item' src={`${img}`} alt='Woodwork piece' key={i} />
+                <img className='item' src={img.src} alt={img.alt} key={i} />
               )
             })
         }
