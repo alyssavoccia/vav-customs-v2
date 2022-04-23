@@ -69,5 +69,13 @@
         }
       }
     }
+
+    &-sold-out-btn {
+      background-color: #c6ac8f;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      padding: 10px 17px;
+    }
   }
 }

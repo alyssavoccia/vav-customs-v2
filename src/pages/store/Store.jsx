@@ -46,7 +46,6 @@ function Store() {
   };
 
   const updateQuantityInCart = async (lineItemId, quantity) => {
-    console.log(quantity);
     const checkoutId = checkout.id;
     const lineItemsToUpdate = [{id: lineItemId, quantity: parseInt(quantity, 10)}];
 

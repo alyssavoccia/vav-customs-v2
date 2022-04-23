@@ -19,7 +19,9 @@ function Product(props) {
         </div>
         <div className='product__card-buy'>
           <input className='product__card-quantity' min="1" type="number" defaultValue={1} onChange={handleQuantityChange}></input>
-          <button className="product__card-buy-btn button" onClick={() => props.addItemToCart(props.product.variants[0].id, quantity)}>Add to Cart</button>
+          <button disabled={!props.available} className={props.available ? 'product__card-buy-btn' : 'product__card-sold-out-btn'} onClick={() => props.addItemToCart(props.product.variants[0].id, quantity)}>
+            {!props.available ? 'Sold Out' : 'Add to Cart'}
+          </button>
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@ function Products(props) {
         client={props.client}
         key={product.id.toString()}
         product={product}
+        available={product.availableForSale}
       />
     )
   });
