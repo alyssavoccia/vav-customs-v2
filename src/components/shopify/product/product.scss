@@ -45,37 +45,32 @@
       }
     }
 
-    &-buy-btn {
+    &-btn {
       background-color: #c6ac8f;
       border: none;
       border-radius: 5px;
-      cursor: pointer;
       font-size: 1.1rem;
       padding: 10px 17px;
-      transition: ease-in .2s;
+
+      &-buy {
+        cursor: pointer;
+        transition: ease-in .2s;
 
         &::after {
-        display: inline-block;
-        padding-left: .5rem;
-        content: "\0279E";
-        transition: transform 0.3s ease-out;
-      }
+          display: inline-block;
+          padding-left: .5rem;
+          content: "\0279E";
+          transition: transform 0.3s ease-out;
+        }
 
-      &:hover {
-        background-color: #eae0d5;
-    
-        &::after {
-          transform: translateX(4px);
+        &:hover {
+          background-color: #eae0d5;
+      
+          &::after {
+            transform: translateX(4px);
+          }
         }
       }
-    }
-
-    &-sold-out-btn {
-      background-color: #c6ac8f;
-      border: none;
-      border-radius: 5px;
-      font-size: 1.1rem;
-      padding: 10px 17px;
     }
   }
 }

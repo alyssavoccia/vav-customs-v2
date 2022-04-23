@@ -5,7 +5,7 @@ import AboutLogoWorking from '../../assets/about-me.jpg';
 function About() {
   return (
     <section className="about-me" id="about">
-      <div className="about-me_content container">
+      <div className="about-me__content container">
         <div className="image-stack">
           <div className="image-stack__item image-stack__item-top">
             <img src={AboutLogoBoat} alt="Me on a boat" />
