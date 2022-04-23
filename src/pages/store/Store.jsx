@@ -14,7 +14,7 @@ function Store() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [checkout, setCheckout] = useState({ lineItems: [] });
   const [products, setProducts] = useState([]);
-  const [shop, setShop] = useState({});
+  const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
     client.checkout.create().then(res => {
@@ -24,37 +24,44 @@ function Store() {
     client.product.fetchAll().then(res => {
       setProducts(res);
     });
-
-    client.shop.fetchInfo().then(res => {
-      setShop(res);
-    });
   }, []);
 
-  const addItemToCart = (itemId, quantity) => {
+  const updateTotalItems = (res) => {
+    setTotalItems(0);
+    res.lineItems.forEach(item => {
+      setTotalItems(prevState => prevState + item.quantity);
+    });
+  };
+
+  const addItemToCart = async (variantId, quantity) => {
     setIsCartOpen(true);
 
-    const lineItemsToAdd = [{itemId, quantity: parseInt(quantity, 10)}];
+    const lineItemsToAdd = [{variantId, quantity: parseInt(quantity, 10)}];
     const checkoutId = checkout.id;
 
     return client.checkout.addLineItems(checkoutId, lineItemsToAdd).then(res => {
       setCheckout(res);
+      updateTotalItems(res);
     });
   };
 
-  const updateQuantityInCart = (lineItemId, quantity) => {
+  const updateQuantityInCart = async (lineItemId, quantity) => {
+    console.log(quantity);
     const checkoutId = checkout.id;
     const lineItemsToUpdate = [{id: lineItemId, quantity: parseInt(quantity, 10)}];
 
     return client.checkout.updateLineItems(checkoutId, lineItemsToUpdate).then(res => {
       setCheckout(res);
+      updateTotalItems(res);
     });
   };
 
-  const removeLineItemInCart = (lineItemId) => {
+  const removeLineItemInCart = async (lineItemId) => {
     const checkoutId = checkout.id;
 
     return client.checkout.removeLineItems(checkoutId, [lineItemId]).then(res => {
       setCheckout(res);
+      updateTotalItems(res);
     });
   };
 
@@ -67,7 +74,10 @@ function Store() {
       <header className='store__header'>
         {!isCartOpen &&
           <div className="store__view-cart-wrapper">
-            <div className="store__view-cart" onClick={()=> setIsCartOpen(true)}><ShoppingIcon className='store__view-cart-icon' /></div>
+            <div className="store__view-cart" onClick={()=> setIsCartOpen(true)}>
+              <ShoppingIcon className='store__view-cart-icon' />
+              <span className='store__view-cart-icon-count'>{totalItems}</span>
+            </div>
           </div>
         }
         <h1 className='store__title'>Store</h1>

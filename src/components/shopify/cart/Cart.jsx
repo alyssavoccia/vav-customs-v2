@@ -1,12 +1,10 @@
 import './cart.scss';
-import LineItem from "../LineItem";
+import LineItem from "../line-item/LineItem";
 
 function Cart(props) {
   const openCheckout = () => {
     window.open(props.checkout.webUrl);
   }
-
-  console.log(props)
 
   let line_items = props.checkout.lineItems.map((line_item) => {
     return (
@@ -33,25 +31,25 @@ function Cart(props) {
         {line_items}
       </ul>
       <footer className="cart__footer">
-        <div className="cart-info clearfix">
+        {/* <div className="cart-info clearfix">
           <div className="cart-info__total cart-info__small">Subtotal</div>
           <div className="cart-info__pricing">
             <span className="pricing">$ {props.checkout.subtotalPrice}</span>
           </div>
-        </div>
+        </div> */}
         <div className="cart-info clearfix">
-          <div className="cart-info__total cart-info__small">Taxes</div>
+          <div className="cart-info__total cart-info__small">Taxes & Shipping</div>
           <div className="cart-info__pricing">
-            <span className="pricing">$ {props.checkout.totalTax}</span>
+            <span className="pricing">Determined at Checkout</span>
           </div>
         </div>
         <div className="cart-info clearfix">
-          <div className="cart-info__total cart-info__small">Total</div>
+          <div className="cart-info__total cart-info__small">Subtotal</div>
           <div className="cart-info__pricing">
             <span className="cart-pricing">$ {props.checkout.totalPrice}</span>
           </div>
         </div>
-        <button className="cart__checkout button" onClick={openCheckout}>Checkout</button>
+        <button disabled={line_items.length === 0} className="cart__checkout button" onClick={openCheckout}>Checkout</button>
       </footer>
     </div>
   )

@@ -10,16 +10,20 @@ function Product(props) {
 
   return (
     <div className="product">
-      {props.product.images.length ? <img src={props.product.images[0].src} alt={`${props.product.title} product shot`}/> : null}
-      <h5 className="product__title">{props.product.title}</h5>
-      <span className="product__price">${props.product.variants[0].price}</span>
-      <label className="product__option">
-        Quantity
-        <input min="1" type="number" defaultValue={1} onChange={handleQuantityChange}></input>
-      </label>
-      <button className="product__buy button" onClick={() => props.addItemToCart(props.product.id, quantity)}>Add to Cart</button>
+      <div className='product__card'>
+        {props.product.images.length ? <img src={props.product.images[0].src} alt={`${props.product.title} product shot`} className='product__card-img' /> : null}
+        <div className='prodcut__card-info'>
+          <h2 className="product__card-title">{props.product.title}</h2>
+          <span className="product__card-price">${props.product.variants[0].price}</span>
+          <p className='product__card-description'>{props.product.description}</p>
+        </div>
+        <div className='product__card-buy'>
+          <input className='product__card-quantity' min="1" type="number" defaultValue={1} onChange={handleQuantityChange}></input>
+          <button className="product__card-buy-btn button" onClick={() => props.addItemToCart(props.product.variants[0].id, quantity)}>Add to Cart</button>
+        </div>
+      </div>
     </div>
   )
 }
 
-export default Product
+export default Product;

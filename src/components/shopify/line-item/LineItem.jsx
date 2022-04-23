@@ -1,14 +1,13 @@
-import React from 'react'
+import './line-item.scss';
 
 function LineItem(props) {
-  console.log(props)
   const decrementQuantity = (lineItemId) => {
-    const updatedQuantity = props.line_item.quantity - 1
+    const updatedQuantity = props.line_item.quantity - 1;
     props.updateQuantityInCart(lineItemId, updatedQuantity);
   };
 
   const incrementQuantity = (lineItemId) => {
-    const updatedQuantity = props.line_item.quantity + 1
+    const updatedQuantity = props.line_item.quantity + 1;
     props.updateQuantityInCart(lineItemId, updatedQuantity);
   };
 
@@ -19,9 +18,6 @@ function LineItem(props) {
       </div>
       <div className="line-item__content">
         <div className="line-item__content-row">
-          <div className="line-item__variant-title">
-            {props.line_item.variant.title}
-          </div>
           <span className="line-item__title">
             {props.line_item.title}
           </span>

@@ -2,7 +2,8 @@
   padding-top: 100px;
 
   &__header {
-    align-items: center;
+    align-content: center;
+    justify-content: center;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr;
@@ -11,7 +12,8 @@
   }
 
   &__view-cart-wrapper {
-    align-items: center;
+    align-content: center;
+    display: grid;
     grid-area: 1 / 5 / 2 / 6;
   }
 
@@ -19,13 +21,25 @@
     border: none;
     background: none;
     cursor: pointer;
-    height: 48px;
+    display: grid;
+    justify-content: center;
     margin-right: 2rem;
+    position: relative;
     text-align: right;
 
     &-icon {
-      height: 48px;
-      width: 48px;
+      fill: #3F3F3F;
+      height: 36px;
+      width: 36px;
+
+      &-count {
+        font-size: 10px;
+        font-weight: 800;
+        justify-self: center; 
+        padding-right: 4px;
+        position: absolute;
+        bottom: 14px;
+      }
     }
   }
 
