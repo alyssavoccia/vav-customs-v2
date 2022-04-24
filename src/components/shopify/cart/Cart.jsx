@@ -1,16 +1,18 @@
+import { useContext } from 'react';
 import './cart.scss';
 import LineItem from "../line-item/LineItem";
+import CartContext from '../../../context/cart/CartContext';
 
 function Cart(props) {
+  const { isCartOpen, checkout } = useContext(CartContext);
+
   const openCheckout = () => {
-    window.open(props.checkout.webUrl);
+    window.open(checkout.webUrl);
   }
 
-  let line_items = props.checkout.lineItems.map((line_item) => {
+  let line_items = checkout.lineItems.map((line_item) => {
     return (
       <LineItem 
-        updateQuantityInCart={props.updateQuantityInCart}
-        removeLineItemInCart={props.removeLineItemInCart}
         key={line_item.id.toString()}
         line_item={line_item}
       />
@@ -18,7 +20,7 @@ function Cart(props) {
   });
 
   return (
-    <div className={`cart ${props.isCartOpen ? 'cart__open' : ''}`}>
+    <div className={`cart ${isCartOpen ? 'cart__open' : ''}`}>
       <header className="cart__header">
         <h2>Your cart</h2>
         <button
@@ -46,7 +48,7 @@ function Cart(props) {
         <div className="cart-info clearfix">
           <div className="cart-info__total cart-info__small">Subtotal</div>
           <div className="cart-info__pricing">
-            <span className="cart-pricing">$ {props.checkout.totalPrice}</span>
+            <span className="cart-pricing">$ {checkout.totalPrice}</span>
           </div>
         </div>
         <button disabled={line_items.length === 0} className="cart__checkout button" onClick={openCheckout}>Checkout</button>

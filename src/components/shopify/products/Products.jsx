@@ -5,8 +5,8 @@ function Products(props) {
   let products = props.products.map(product => {
     return (
       <Product
-        addItemToCart={props.addItemToCart}
-        client={props.client}
+        // addItemToCart={props.addItemToCart}
+        // client={props.client}
         key={product.id.toString()}
         product={product}
         available={product.availableForSale}

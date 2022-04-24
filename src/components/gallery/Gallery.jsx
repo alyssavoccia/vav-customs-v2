@@ -15,11 +15,10 @@ function Gallery() {
       </div>
       <div className="gallery-masonry container">
         { GalleryData.map((img, i) => {
-          console.log(img.src)
-              return (
-                <img className='item' src={img.src} alt={img.alt} key={i} />
-              )
-            })
+            return (
+              <img className='item' src={img.src} alt={img.alt} key={i} />
+            )
+          })
         }
       </div>
     </section>

@@ -1,15 +1,27 @@
+import { useContext } from 'react';
+import { updateQuantityInCart, removeLineItemInCart } from '../../../context/cart/CartActions';
+import CartContext from '../../../context/cart/CartContext';
 import './line-item.scss';
 
 function LineItem(props) {
-  const decrementQuantity = (lineItemId) => {
+  const { dispatch, client, checkout } = useContext(CartContext);
+
+  const decrementQuantity = async (lineItemId) => {
     const updatedQuantity = props.line_item.quantity - 1;
-    props.updateQuantityInCart(lineItemId, updatedQuantity);
+    const updatedCheckoutObj = await updateQuantityInCart(client, checkout, lineItemId, updatedQuantity);
+    dispatch({ type: 'UPDATE_QUANTITY_IN_CART', payload: {checkout: updatedCheckoutObj} });
   };
 
-  const incrementQuantity = (lineItemId) => {
+  const incrementQuantity = async (lineItemId) => {
     const updatedQuantity = props.line_item.quantity + 1;
-    props.updateQuantityInCart(lineItemId, updatedQuantity);
+    const updatedCheckoutObj = await updateQuantityInCart(client, checkout, lineItemId, updatedQuantity);
+    dispatch({ type: 'UPDATE_QUANTITY_IN_CART', payload: {checkout: updatedCheckoutObj} });
   };
+
+  const removeLineItem = async (lineItemId) => {
+    const updatedCheckoutObj = await removeLineItemInCart(client, checkout, lineItemId);
+    dispatch({ type: 'REMOVE_LINE_ITEM_IN_CART', payload: {checkout: updatedCheckoutObj} });
+  }
 
   return (
     <li className="line-item">
@@ -31,7 +43,7 @@ function LineItem(props) {
           <span className="line-item__price">
             $ { (props.line_item.quantity * props.line_item.variant.price).toFixed(2) }
           </span>
-          <button className="line-item__remove" onClick={()=> props.removeLineItemInCart(props.line_item.id)}>×</button>
+          <button className="line-item__remove" onClick={() => removeLineItem(props.line_item.id)}>×</button>
         </div>
       </div>
     </li>
