@@ -9,6 +9,7 @@ import Landing from "./pages/Landing";
 import BlogPosts from "./pages/BlogPosts";
 import Store from "./pages/store/Store";
 import Contact from "./components/contact/Contact";
+import Cart from "./components/shopify/cart/Cart";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -46,6 +47,7 @@ function App() {
           <Route path='/store' element={<Store />} />
         </Routes>
         <Contact />
+        <Cart />
       </div>
   );
 }

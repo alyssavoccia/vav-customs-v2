@@ -11,38 +11,6 @@
     grid-row-gap: 0px;
   }
 
-  &__view-cart-wrapper {
-    align-content: center;
-    display: grid;
-    grid-area: 1 / 5 / 2 / 6;
-  }
-
-  &__view-cart {
-    border: none;
-    background: none;
-    cursor: pointer;
-    display: grid;
-    justify-content: center;
-    margin-right: 2rem;
-    position: relative;
-    text-align: right;
-
-    &-icon {
-      fill: #3F3F3F;
-      height: 36px;
-      width: 36px;
-
-      &-count {
-        font-size: 10px;
-        font-weight: 800;
-        justify-self: center; 
-        padding-right: 4px;
-        position: absolute;
-        bottom: 14px;
-      }
-    }
-  }
-
   &__title {
     font-size: 48px;
     grid-area: 1 / 3 / 2 / 4; 

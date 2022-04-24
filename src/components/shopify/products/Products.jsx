@@ -1,12 +1,14 @@
+import { useContext } from 'react';
 import './products.scss';
 import Product from "../product/Product";
+import CartContext from '../../../context/cart/CartContext';
 
-function Products(props) {
-  let products = props.products.map(product => {
+function Products() {
+  const { products } = useContext(CartContext);
+
+  let allProducts = products.map(product => {
     return (
       <Product
-        // addItemToCart={props.addItemToCart}
-        // client={props.client}
         key={product.id.toString()}
         product={product}
         available={product.availableForSale}
@@ -16,7 +18,7 @@ function Products(props) {
 
   return (
     <div className="container products-wrapper">
-      {products}
+      {allProducts}
     </div>
   )
 }
