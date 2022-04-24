@@ -4,7 +4,7 @@ import LineItem from "../line-item/LineItem";
 import CartContext from '../../../context/cart/CartContext';
 
 function Cart(props) {
-  const { isCartOpen, checkout } = useContext(CartContext);
+  const { dispatch, isCartOpen, checkout } = useContext(CartContext);
 
   const openCheckout = () => {
     window.open(checkout.webUrl);
@@ -24,7 +24,7 @@ function Cart(props) {
       <header className="cart__header">
         <h2>Your cart</h2>
         <button
-          onClick={props.handleCartClose}
+          onClick={() => dispatch({ type: 'CLOSE_CART' })}
           className="cart__close">
           ×
         </button>

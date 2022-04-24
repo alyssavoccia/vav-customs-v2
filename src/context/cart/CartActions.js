@@ -24,7 +24,3 @@ export const removeLineItemInCart = async (client, checkout, lineItemId) => {
 
   return client.checkout.removeLineItems(checkoutId, [lineItemId]);
 };
-
-// export const handleCartClose = () => {
-//   setIsCartOpen(false);
-// };
