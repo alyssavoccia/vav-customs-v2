@@ -1,5 +1,4 @@
 export const updateTotalItemsInCart = async (checkout) => {
-  console.log(checkout.lineItems)
   return checkout.lineItems.reduce((acc, cur) => acc + cur.quantity, 0);
 };
 
