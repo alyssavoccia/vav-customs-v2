@@ -1,9 +1,7 @@
-// export const updateTotalItems = (res) => {
-//   setTotalItems(0);
-//   res.lineItems.forEach(item => {
-//     setTotalItems(prevState => prevState + item.quantity);
-//   });
-// };
+export const updateTotalItemsInCart = async (checkout) => {
+  console.log(checkout.lineItems)
+  return checkout.lineItems.reduce((acc, cur) => acc + cur.quantity, 0);
+};
 
 export const addItemToCart = async (client, checkout, variantId, quantity) => {
   const lineItemsToAdd = [{variantId, quantity: parseInt(quantity, 10)}];

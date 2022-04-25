@@ -1,26 +1,34 @@
 import { useContext } from 'react';
-import { updateQuantityInCart, removeLineItemInCart } from '../../../context/cart/CartActions';
+import { updateTotalItemsInCart, updateQuantityInCart, removeLineItemInCart } from '../../../context/cart/CartActions';
 import CartContext from '../../../context/cart/CartContext';
 import './line-item.scss';
 
 function LineItem(props) {
   const { dispatch, client, checkout } = useContext(CartContext);
 
+  const updateTotalItems = async (newCheckoutObj) => {
+    const totalItems = await updateTotalItemsInCart(newCheckoutObj);
+    dispatch({ type: 'UPDATE_TOTAL_ITEMS_IN_CART', payload: {items: totalItems}});
+  }
+
   const decrementQuantity = async (lineItemId) => {
     const updatedQuantity = props.line_item.quantity - 1;
     const updatedCheckoutObj = await updateQuantityInCart(client, checkout, lineItemId, updatedQuantity);
     dispatch({ type: 'UPDATE_QUANTITY_IN_CART', payload: {checkout: updatedCheckoutObj} });
+    updateTotalItems(updatedCheckoutObj);
   };
 
   const incrementQuantity = async (lineItemId) => {
     const updatedQuantity = props.line_item.quantity + 1;
     const updatedCheckoutObj = await updateQuantityInCart(client, checkout, lineItemId, updatedQuantity);
     dispatch({ type: 'UPDATE_QUANTITY_IN_CART', payload: {checkout: updatedCheckoutObj} });
+    updateTotalItems(updatedCheckoutObj);
   };
 
   const removeLineItem = async (lineItemId) => {
     const updatedCheckoutObj = await removeLineItemInCart(client, checkout, lineItemId);
     dispatch({ type: 'REMOVE_LINE_ITEM_IN_CART', payload: {checkout: updatedCheckoutObj} });
+    updateTotalItems(updatedCheckoutObj);
   }
 
   return (

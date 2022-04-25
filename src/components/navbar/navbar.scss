@@ -14,6 +14,7 @@
   }
 
   &__wrapper {
+    align-items: center;
     background-color: #222;
     min-height: 75px;
     position: fixed;
@@ -22,7 +23,7 @@
   }
 
   &__main-nav {
-    align-items: center;
+    align-content: center;
     display: grid;
     font-size: 1.2rem;
     margin: 1rem 0;
@@ -53,25 +54,27 @@
         height: 30px;
         position: absolute;
         right: 6rem;
-        top: 0;
+        top: 4px;
         width: 30px;
         z-index: 10000;
 
         &:hover {
           fill: #c6ac8f;
         }
+
+        &:hover .navbar__main-nav__view-cart-count {
+          color: #c6ac8f;
+        }
   
         &-count {
+          color: #FFF;
           font-size: 10px;
           font-weight: 800;
           justify-self: center; 
-          padding-right: 4px;
           position: absolute;
-          bottom: 14px;
-
-          &:hover {
-            color: #c6ac8f;
-          }
+          right: 6.85rem;
+          top: .55rem;
+          z-index: 10000;
         }
       }
     }
@@ -130,6 +133,11 @@
           position: grid;
           right: 2rem;
           top: auto;
+
+          &-count {
+            right: 2.9rem;
+            top: 1.75rem;
+          }
         }
       }
     }

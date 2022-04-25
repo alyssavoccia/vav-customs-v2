@@ -3,7 +3,7 @@ import './cart.scss';
 import LineItem from "../line-item/LineItem";
 import CartContext from '../../../context/cart/CartContext';
 
-function Cart(props) {
+function Cart() {
   const { dispatch, isCartOpen, checkout } = useContext(CartContext);
 
   const openCheckout = () => {

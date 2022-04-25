@@ -7,7 +7,7 @@ import {ReactComponent as ShoppingIcon} from '../../assets/shopping-cart.svg';
 import MiniLogo from '../../assets/mini-logo.png';
 
 function Navbar() {
-  const { dispatch } = useContext(CartContext);
+  const { dispatch, totalItemsInCart } = useContext(CartContext);
   const [active, setActive] = useState('navbar__main-menu');
 
   const navToggle = () => {
@@ -33,7 +33,7 @@ function Navbar() {
           </ul>
           <div className="navbar__main-nav__view-cart" onClick={()=> dispatch({ type: 'OPEN_CART' })}>
             <ShoppingIcon className='navbar__main-nav__view-cart-icon' />
-            <span className='navbar__main-nav__view-cart-icon-count'>{}</span>
+            <span className='navbar__main-nav__view-cart-icon-count'>{totalItemsInCart}</span>
           </div>
         </nav>
       </div>

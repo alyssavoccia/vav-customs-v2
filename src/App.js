@@ -1,5 +1,4 @@
 import { useEffect, useContext } from "react";
-
 import { Routes, Route } from "react-router-dom";
 import SmoothScroll from 'smooth-scroll';
 import Client from 'shopify-buy';
@@ -39,16 +38,16 @@ function App() {
   }, [dispatch]);
 
   return (
-      <div className="app">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/blog-posts" element={<BlogPosts />} />
-          <Route path='/store' element={<Store />} />
-        </Routes>
-        <Contact />
-        <Cart />
-      </div>
+    <div className="app">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/blog-posts" element={<BlogPosts />} />
+        <Route path='/store' element={<Store />} />
+      </Routes>
+      <Contact />
+      <Cart />
+    </div>
   );
 }
 

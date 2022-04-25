@@ -8,7 +8,8 @@ export const CartProvider = ({ children }) => {
     isCartOpen: false,
     checkout: { lineItems: [] },
     products: [],
-    client: {}
+    client: {},
+    totalItemsInCart: 0
   };
 
   const [state, dispatch] = useReducer(cartReducer, initialState);

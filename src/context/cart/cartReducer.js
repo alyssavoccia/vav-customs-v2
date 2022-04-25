@@ -31,6 +31,11 @@ const cartReducer = (state, action) => {
         ...state,
         checkout: action.payload.checkout
       }
+    case 'UPDATE_TOTAL_ITEMS_IN_CART':
+      return {
+        ...state,
+        totalItemsInCart: action.payload.items
+      }
     case 'OPEN_CART':
       return {
         ...state,

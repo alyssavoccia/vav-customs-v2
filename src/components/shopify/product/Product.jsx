@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import CartContext from '../../../context/cart/CartContext';
-import { addItemToCart } from '../../../context/cart/CartActions';
+import { addItemToCart, updateTotalItemsInCart } from '../../../context/cart/CartActions';
 import './product.scss';
 
 function Product(props) {
@@ -14,6 +14,8 @@ function Product(props) {
   const handleSubmit = async () => {
     const newCheckoutObj = await addItemToCart(client, checkout, props.product.variants[0].id, quantity);
     dispatch({ type: 'ADD_VARIANT_TO_CART', payload: {isCartOpen: true, checkout: newCheckoutObj}});
+    const totalItems = await updateTotalItemsInCart(newCheckoutObj);
+    dispatch({ type: 'UPDATE_TOTAL_ITEMS_IN_CART', payload: {items: totalItems}});
   }
 
   return (
