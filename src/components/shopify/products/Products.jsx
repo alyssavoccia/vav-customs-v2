@@ -17,7 +17,7 @@ function Products() {
   });
 
   return (
-    <div className="container products-wrapper">
+    <div className="products-wrapper">
       {allProducts}
     </div>
   )
