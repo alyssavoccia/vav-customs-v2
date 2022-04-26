@@ -19,13 +19,17 @@
   &__close {
     position: absolute;
     right: 9px;
-    top: 8px;
+    top: 1.1rem;
     font-size: 35px;
     color: #999;
     border: none;
     background: transparent;
     transition: transform 100ms ease;
     cursor: pointer;
+
+    &:hover {
+      color: #222;
+    }
   }
 
   &__header {

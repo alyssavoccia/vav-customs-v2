@@ -19,22 +19,24 @@ function App() {
   const { dispatch } = useContext(CartContext);
 
   useEffect(() => {
-    // Create client
-    const client = Client.buildClient({
-      domain: 'vavcustoms.myshopify.com',
-      storefrontAccessToken: '493769b404bf83733826c0783d32ff85'
-    });
-    dispatch({ type: 'CLIENT_CREATED', payload: client });
+    if (!localStorage.getItem('userCart')) {
+      // Create client
+      const client = Client.buildClient({
+        domain: 'vavcustoms.myshopify.com',
+        storefrontAccessToken: '493769b404bf83733826c0783d32ff85'
+      });
+      dispatch({ type: 'CLIENT_CREATED', payload: client });
 
-    // Get all products
-    client.product.fetchAll().then(res => {
-      dispatch({ type: 'PRODUCTS_FOUND', payload: res});
-    });
+      // Get all products
+      client.product.fetchAll().then(res => {
+        dispatch({ type: 'PRODUCTS_FOUND', payload: res});
+      });
 
-    // Set up checkout
-    client.checkout.create().then(res => {
-      dispatch({ type: 'CHECKOUT_FOUND', payload: res});
-    });
+      // Set up checkout
+      client.checkout.create().then(res => {
+        dispatch({ type: 'CHECKOUT_FOUND', payload: res});
+      });
+    }
   }, [dispatch]);
 
   return (
