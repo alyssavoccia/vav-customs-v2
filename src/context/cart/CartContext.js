@@ -4,9 +4,7 @@ import cartReducer from './cartReducer';
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const initialState = localStorage.getItem('userCart')
-  ? JSON.parse(localStorage.getItem('userCart'))
-  : {
+  const initialState = {
     isCartOpen: false,
     checkout: { lineItems: [] },
     products: [],
@@ -14,7 +12,7 @@ export const CartProvider = ({ children }) => {
     totalItemsInCart: 0
   };
 
-  const [state, dispatch] = useReducer(cartReducer, initialState);
+  const [state, dispatch] = useReducer(cartReducer, localStorage.getItem('userCart') ? JSON.parse(localStorage.getItem('userCart')) : initialState);
 
   useEffect(() => {
     localStorage.setItem('userCart', JSON.stringify(state));
