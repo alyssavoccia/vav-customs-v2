@@ -8,36 +8,49 @@ import MiniLogo from '../../assets/mini-logo.png';
 
 function Navbar() {
   const { dispatch, totalItemsInCart } = useContext(CartContext);
-  const [active, setActive] = useState('navbar__main-menu');
+  const [active, setActive] = useState('navbar__menu');
+  const [mobileIcon, setMobileIcon] = useState('navbar__toggler');
 
   const navToggle = () => {
     if (window.innerWidth < 769) {
-      active === 'navbar__main-menu' ? setActive('navbar__main-menu navbar__main-menu_show') : setActive('navbar__main-menu');
+      active === 'navbar__menu' ? setActive('navbar__menu navbar-active') : setActive('navbar__menu')
     }
-  }
+    // Icon toggle
+    mobileIcon === 'navbar__toggler' ? setMobileIcon('navbar__toggler toggle') : setMobileIcon('navbar__toggler')
+  };
 
   return (
-    <div className='navbar'>
-      <div onClick={navToggle} className="navbar__menu-btn">
-        <i className="fas fa-bars fa-2x"></i>
+    <nav className="navbar">
+      <img className="navbar__logo" src={MiniLogo} alt="Vav Customs Logo" />
+      <div className='navbar__links-cart'>
+        <ul className={active}>
+          <li className="navbar__item" onClick={navToggle}>
+            <HashLink className='link' smooth to='/#home'>Home</HashLink>
+          </li>
+          <li className="navbar__item" onClick={navToggle}>
+            <HashLink smooth to='/#about'>About</HashLink>
+          </li>
+          <li className="navbar__item" onClick={navToggle}>
+            <HashLink smooth to='/#gallery'>Gallery</HashLink>
+          </li>
+          <li className="navbar__item" onClick={navToggle}>
+            <Link to='/blog-posts'>Blog</Link>
+          </li>
+          <li className="navbar__item" onClick={navToggle}>
+            <Link to='/store'>Store</Link>
+          </li>
+        </ul>
+        <div className="navbar__view-cart" onClick={()=> dispatch({ type: 'OPEN_CART' })}>
+          <ShoppingIcon className='navbar__view-cart__icon' />
+          <span className='navbar__view-cart__icon-count'>{totalItemsInCart}</span>
+        </div>
+        <div onClick={navToggle} className={mobileIcon}>
+          <div className="line1"></div>
+          <div className="line2"></div>
+          <div className="line3"></div>
+        </div>
       </div>
-      <div className="navbar__wrapper">
-        <nav className="navbar__main-nav container">
-          <img className="navbar__main-nav-logo" src={MiniLogo} alt="Vav Customs Logo" />
-          <ul className={active}>
-            <li className="navbar__main-menu-link" onClick={navToggle}><HashLink className='link' smooth to='/#home'>Home</HashLink></li>
-            <li className="navbar__main-menu-link" onClick={navToggle}><HashLink smooth to='/#about'>About</HashLink></li>
-            <li className="navbar__main-menu-link" onClick={navToggle}><HashLink smooth to='/#gallery'>Gallery</HashLink></li>
-            <li className="navbar__main-menu-link" onClick={navToggle}><Link to='/blog-posts'>Blog</Link></li>
-            <li className="navbar__main-menu-link" onClick={navToggle}><Link to='/store'>Store</Link></li>
-          </ul>
-          <div className="navbar__main-nav__view-cart" onClick={()=> dispatch({ type: 'OPEN_CART' })}>
-            <ShoppingIcon className='navbar__main-nav__view-cart-icon' />
-            <span className='navbar__main-nav__view-cart-icon-count'>{totalItemsInCart}</span>
-          </div>
-        </nav>
-      </div>
-    </div>
+    </nav>
   )
 }
 

@@ -3,7 +3,7 @@ import Products from '../../components/shopify/products/Products';
 
 function Store() {
   return (
-    <div className='store container'>
+    <div className='store'>
       <header className='store__header'>
         <h1 className='store__title'>Store</h1>
       </header>
