@@ -2,25 +2,6 @@
   height: 100%;
   margin: 1rem 0 6rem 0;
 
-  &__section-title {
-    font-size: 2.5rem;
-    position: relative;
-    text-align: center;
-
-    &:after {
-      border-top: 10px solid #c6ac8f;
-      content: "";
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      right: 0;
-      height: 1rem;
-      margin: 0 auto;
-      z-index: -1;
-      width: 325px;
-    }
-  }
-
   &__content {
     align-items: center;
     display: grid;
@@ -58,7 +39,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     justify-items: center;
-    margin-top: 1rem;
+    margin-top: 2rem;
     text-align: center;
     max-width: 100%;
 

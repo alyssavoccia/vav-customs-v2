@@ -1,19 +1,8 @@
 .store {
-  padding-top: 100px;
+  margin-top: 75px;
+  padding: 3rem 0;
 
-  &__header {
-    align-content: center;
-    justify-content: center;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-  }
-
-  &__title {
-    font-size: 48px;
-    grid-area: 1 / 3 / 2 / 4; 
-    text-align: center;
+  .section-title:after {
+    width: 110px;
   }
 }

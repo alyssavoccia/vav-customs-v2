@@ -3,21 +3,7 @@
   padding: 3rem 0;
   text-align: center;
 
-  .section-title {
-    font-size: 3rem;
-    position: relative;
-
-    &:after {
-      border-top: 10px solid #c6ac8f;
-      content: "";
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      right: 0;
-      height: 1rem;
-      margin: 0 auto;
-      z-index: -1;
-      width: 220px;
-    }
+  .section-title:after {
+    width: 180px;
   }
 }

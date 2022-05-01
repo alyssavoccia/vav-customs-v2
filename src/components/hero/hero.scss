@@ -4,8 +4,9 @@
   background-size: cover;
   background-position: top;
   display: grid;
+  height: 100vh;
   justify-content: center;
-  height: 95vh;
+  padding-top: 75px;
 
   &-logo {
     margin: 0 auto;

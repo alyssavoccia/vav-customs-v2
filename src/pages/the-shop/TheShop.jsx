@@ -1,3 +1,4 @@
+import '../../global.scss';
 import './theshop.scss';
 
 function TheShop() {

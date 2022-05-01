@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
+import '../../global.scss';
 import './services.scss';
 
 function Services() {
   return (
     <section className="services">
       <div className="container">
-        <h1 className="services__section-title">What We Provide</h1>
+        <h1 className="section-title">What We Provide</h1>
         <div className="services__content">
           <div className="services__items-container">
             <div className="services__item">

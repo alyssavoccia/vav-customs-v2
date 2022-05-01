@@ -12,25 +12,15 @@
   justify-content: center;
   }
 
-  &_title {
+  .section-title {
     font-size: 2rem;
-    font-weight: 600;
     margin-bottom: 1rem;
-    position: relative;
     text-align: left;
-    text-transform: uppercase;
 
     &:after {
-      border-top: 10px solid #c6ac8f;
-      content: "";
-      position: absolute;
       bottom: -6px;
-      left: 0;
-      right: 0;
-      height: 1rem;
       margin: 0;
-      z-index: -1;
-      width: 220px;
+      width: 205px;
     }
   }
 }
