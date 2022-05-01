@@ -34,7 +34,7 @@ function Navbar() {
             <HashLink smooth to='/#gallery'>Gallery</HashLink>
           </li>
           <li className="navbar__item" onClick={navToggle}>
-            <Link to='/'>The Shop</Link>
+            <Link to='/the-shop'>The Shop</Link>
           </li>
           <li className="navbar__item" onClick={navToggle}>
             <Link to='/blog-posts'>Blog</Link>
