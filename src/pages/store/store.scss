@@ -5,4 +5,21 @@
   .section-title:after {
     width: 110px;
   }
+
+  &__categories {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+
+    li {
+      border-radius: 5px;
+      cursor: pointer;
+      padding: .25rem .5rem;
+    }
+
+    .active {
+      background-color: #c6ac8f;
+    }
+  }
 }
