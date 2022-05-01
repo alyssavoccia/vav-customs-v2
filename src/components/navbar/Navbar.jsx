@@ -21,7 +21,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <img className="navbar__logo" src={MiniLogo} alt="Vav Customs Logo" />
+      <HashLink className='link' smooth to='/#home'><img className="navbar__logo" src={MiniLogo} alt="Vav Customs Logo" /></HashLink>
       <div className='navbar__links-cart'>
         <ul className={active}>
           <li className="navbar__item" onClick={navToggle}>
@@ -32,6 +32,9 @@ function Navbar() {
           </li>
           <li className="navbar__item" onClick={navToggle}>
             <HashLink smooth to='/#gallery'>Gallery</HashLink>
+          </li>
+          <li className="navbar__item" onClick={navToggle}>
+            <Link to='/'>The Shop</Link>
           </li>
           <li className="navbar__item" onClick={navToggle}>
             <Link to='/blog-posts'>Blog</Link>

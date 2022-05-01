@@ -46,6 +46,10 @@
     transform: translateX(0%);
   }
 
+  &__item a:hover {
+    color: #c6ac8f;
+  }
+
   &__view-cart {
     cursor: pointer;
     display: grid;
@@ -110,6 +114,7 @@
 /* =========================== */
 @media (min-width: 769px) {
   .navbar {
+    justify-content: space-around;
 
     &__menu {
       background-color: transparent;

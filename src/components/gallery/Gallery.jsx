@@ -10,7 +10,7 @@ function Gallery() {
           <i className="fab fa-instagram fa-5x"></i>
         </div>
         <div className="social-media_text">
-          <p>Follow me on social media to see my latest work!</p>
+          <p>Keep up with me on social media to see my latest work!</p>
         </div>
       </div>
       <div className="gallery-masonry container">
