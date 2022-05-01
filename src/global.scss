@@ -16,3 +16,22 @@
     width: 325px;
   }
 }
+
+.section-subtitle {
+  font-size: 2rem;
+  position: relative;
+  text-align: center;
+
+  &:after {
+    border-top: 10px solid #c6ac8f;
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 1rem;
+    margin: 0 auto;
+    z-index: -1;
+    width: 325px;
+  }
+}

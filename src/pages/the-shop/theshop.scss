@@ -1,9 +1,41 @@
 .the-shop {
   margin-top: 75px;
-  padding: 3rem 0;
+  padding: 4rem 0;
   text-align: center;
 
   .section-title:after {
     width: 180px;
   }
+
+  &__contents {
+    margin: 3rem;
+  }
+
+  &__images {
+    align-items: center;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+    justify-content: center;
+  }
+
+  &__favorites {
+    padding: 3rem 0;
+
+    .section-subtitle:after {
+      bottom: -6px;
+      width: 270px;
+    }
+  }
+
+  &__recommendations {
+    padding: 3rem 0;
+
+    .section-subtitle:after {
+      bottom: -6px;
+      width: 380px;
+    }
+  }
+
+
 }
