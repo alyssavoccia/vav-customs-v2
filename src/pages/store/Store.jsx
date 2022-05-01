@@ -12,8 +12,8 @@ function Store() {
       title: 'All'
     },
     {
-      id: 'wood',
-      title: 'Wood Pieces'
+      id: 'woodwork',
+      title: 'Woodwork'
     },
     {
       id: 'custom',
