@@ -1,7 +1,7 @@
 import { useEffect, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import SmoothScroll from 'smooth-scroll';
-import Client from 'shopify-buy';
+import Client from 'shopify-buy/index.unoptimized.umd';
 import CartContext from "./context/cart/CartContext";
 import Navbar from "./components/navbar/Navbar";
 import Landing from "./pages/Landing";

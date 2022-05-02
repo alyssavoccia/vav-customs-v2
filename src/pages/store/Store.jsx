@@ -51,7 +51,7 @@ function Store() {
           <li key={item.title} className={`store__options ${item.id === selected && 'active'}`} onClick={() => setSelected(item.id)}>{item.title}</li>
         ))}
       </ul>
-      <Products />
+      <Products selectedProducts={selected} />
     </div>
   )
 }
