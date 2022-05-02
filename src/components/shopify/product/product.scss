@@ -1,9 +1,12 @@
 .product {
+  height: 100%;
   justify-self: center;
-  margin-bottom: 1.5rem;
   max-width: 310px;
 
   &__card {
+    align-content: space-between;
+    display: grid;
+    height: 100%;
 
     &-img {
       width: 100%;

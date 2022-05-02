@@ -26,15 +26,15 @@ function Product(props) {
           <h2 className="product__card-title">{props.product.title}</h2>
           <span className="product__card-price">${props.product.variants[0].price}</span>
           <p className='product__card-description'>{props.product.description}</p>
+          <div className='product__card-buy'>
+            <label className='prodcut__card-buy-info'>
+              Quantity:
+              <input className='product__card-quantity' min="1" type="number" defaultValue={1} onChange={handleQuantityChange}></input>
+            </label>
+            <button disabled={!props.available} className={props.available ? 'product__card-btn product__card-btn-buy' : 'product__card-btn'} onClick={handleSubmit}>
+              {!props.available ? 'Sold Out' : 'Add to Cart'}
+            </button>
         </div>
-        <div className='product__card-buy'>
-          <label className='prodcut__card-buy-info'>
-            Quantity:
-            <input className='product__card-quantity' min="1" type="number" defaultValue={1} onChange={handleQuantityChange}></input>
-          </label>
-          <button disabled={!props.available} className={props.available ? 'product__card-btn product__card-btn-buy' : 'product__card-btn'} onClick={handleSubmit}>
-            {!props.available ? 'Sold Out' : 'Add to Cart'}
-          </button>
         </div>
       </div>
     </div>

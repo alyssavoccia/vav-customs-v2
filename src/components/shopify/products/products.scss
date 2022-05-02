@@ -1,8 +1,9 @@
 .products-wrapper {
   align-items: center;
   display: grid;
+  grid-auto-rows: 1fr;
   grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
   grid-row-gap: 1.5rem;
   justify-content: center;
-  margin: 50px auto;
+  margin: 3rem auto;
 }
