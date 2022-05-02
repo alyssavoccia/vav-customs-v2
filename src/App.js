@@ -27,12 +27,12 @@ function App() {
     });
     dispatch({ type: 'CLIENT_CREATED', payload: client });
 
-    if (!localStorage.getItem('userCart')) {
-      // Get all products
-      client.product.fetchAll().then(res => {
-        dispatch({ type: 'PRODUCTS_FOUND', payload: res});
-      });
+    // Get all products
+    client.product.fetchAll().then(res => {
+      dispatch({ type: 'PRODUCTS_FOUND', payload: res});
+    });
 
+    if (!localStorage.getItem('userCart')) {
       // Set up checkout
       client.checkout.create().then(res => {
         dispatch({ type: 'CHECKOUT_FOUND', payload: res});
