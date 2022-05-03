@@ -44,7 +44,7 @@ function Store() {
   }, [selected]);
 
   return (
-    <div className='store container'>
+    <div className='store container' id='store'>
       <h1 className='section-title'>Store</h1>
       <ul className='store__categories'>
         {list.map(item => (
