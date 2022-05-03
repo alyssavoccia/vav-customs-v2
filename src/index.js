@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { CartProvider } from './context/cart/CartContext';
 import './index.css';
+import 'react-responsive-modal/styles.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

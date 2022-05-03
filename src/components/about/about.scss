@@ -3,13 +3,13 @@
 
   &__content {
     align-items: center;
-  display: grid;
-  font-size: 1.2rem;
-  font-weight: 300;
-  grid-gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  grid-template-rows: auto-fill;
-  justify-content: center;
+    display: grid;
+    font-size: 1.2rem;
+    font-weight: 300;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-rows: auto-fill;
+    justify-content: center;
   }
 
   .section-title {
