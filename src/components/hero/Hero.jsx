@@ -1,5 +1,5 @@
 import './hero.scss';
-import VAVLogo from '../../assets/VAVCustomsLogo.png';
+import VAVLogo from '../../assets/VAVCustoms-Logo.png';
 
 function Hero() {
   return (
