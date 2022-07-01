@@ -1,0 +1,71 @@
+.custom-build {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 75px auto;
+  padding: 4rem 0;
+
+  .section-title:after {
+    width: 250px;
+  }
+
+  .section-description {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    width: 500px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    width: 500px;
+
+    input,
+    textarea {
+      border-radius: 5px;
+      border: 1px solid #222;
+      font-family: 'Roboto', sans-serif;
+      margin: .5rem 0;
+      padding: .5rem 1rem;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+    }
+
+    &-button {
+      align-self: flex-start;
+      background-color: #c6ac8f;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background-color .3s ease-in-out;
+      margin-top: 1rem;
+      padding: .5rem 1rem;
+      width: 100%;
+    
+      &::after {
+        display: inline-block;
+        padding-left: .5rem;
+        content: "\0279E";
+        transition: transform 0.3s ease-out;
+      }
+    
+      &:hover {
+        background-color: #eae0d5;
+    
+        &::after {
+          transform: translateX(4px);
+        }
+      }
+    }
+  }
+
+  .small-text {
+    font-style: italic;
+    font-size: .9rem;
+    font-weight: 300;
+  }
+}

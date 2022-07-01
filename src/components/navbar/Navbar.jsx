@@ -40,6 +40,9 @@ function Navbar() {
             <Link to='/blog-posts'>Blog</Link>
           </li>
           <li className="navbar__item" onClick={navToggle}>
+            <Link to='/custom-build'>Custom Build</Link>
+          </li>
+          <li className="navbar__item" onClick={navToggle}>
             <Link to='/store'>Store</Link>
           </li>
         </ul>
