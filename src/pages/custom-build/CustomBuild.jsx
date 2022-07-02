@@ -3,7 +3,6 @@ import './custombuild.scss';
 
 function CustomBuild() {
   const [userName, setUserName] = useState('');
-  const [userEmail, setUserEmail] = useState('');
   const [userSubject, setUserSubject] = useState('');
   const [userMessage, setUserMessage] = useState('');
 
