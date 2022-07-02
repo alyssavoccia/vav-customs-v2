@@ -5,7 +5,6 @@ function StoreGrid() {
 
   return (
     <section className='blog-posts'>
-      <h1 className='blog-posts_title'>Blog Posts</h1>
       {blogPosts 
         ? <h1>Blogs</h1>
         : <div className='blog-posts-no-items'>

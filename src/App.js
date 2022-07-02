@@ -6,7 +6,7 @@ import CartContext from "./context/cart/CartContext";
 import Navbar from "./components/navbar/Navbar";
 import Landing from "./pages/Landing";
 import TheShop from "./pages/the-shop/TheShop";
-import BlogPosts from "./pages/BlogPosts";
+import Blog from "./pages/blog/Blog";
 import CustomBuild from './pages/custom-build/CustomBuild';
 import Store from "./pages/store/Store";
 import Contact from "./components/contact/Contact";
@@ -47,7 +47,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="the-shop" element={<TheShop />} />
-        <Route path="/blog-posts" element={<BlogPosts />} />
+        <Route path="/blog-posts" element={<Blog />} />
         <Route path='/custom-build' element={<CustomBuild />} />
         <Route path='/store' element={<Store />} />
       </Routes>
