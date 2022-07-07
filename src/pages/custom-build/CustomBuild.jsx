@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../../firebase.config';
+import { toast } from 'react-toastify';
 import './custombuild.scss';
 
 function CustomBuild() {
@@ -18,7 +19,7 @@ function CustomBuild() {
 
     // UPDATE THIS TO TOAST ERROR
     if (images.length > 2) {
-      alert('Max 2 images');
+      toast.error('Max 2 images allowed for upload.');
       return;
     }
 
@@ -35,7 +36,6 @@ function CustomBuild() {
         uploadTask.on(
           'state_changed',
           (snapshot) => {
-            // const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             switch (snapshot.state) {
               case 'paused':
                 break;
@@ -61,8 +61,7 @@ function CustomBuild() {
     const imgUrls = await Promise.all(
       [...images].map(image => storeImage(image))
     ).catch(() => {
-      // UPDATE TO TOAST ERROR
-      alert('Error: Images not uploaded');
+      toast.error('Images not uploaded.');
       return;
     });
 
@@ -81,6 +80,9 @@ function CustomBuild() {
       message: '',
       images: {}
     });
+    document.getElementById('images').value = null;
+
+    toast.success('Form successfully submitted!');
   };
 
   const onChange = (e) => {
