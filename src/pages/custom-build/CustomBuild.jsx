@@ -23,18 +23,16 @@ function CustomBuild() {
   };
 
   return (
-    <div className='custom-build container' id='custom-build'>
+    <section className='custom-build container' id='custom-build'>
       <h1 className='section-title'>Custom Build</h1>
       <p className='section-description'>Have a custom build that you're looking for? Fill out the form below to get started!</p>
-      <p className='small-text'>You will be able to attach an image upon submission of the form.</p>
-
       <form className='custom-build__form'>
         <input type="text" id='user-name' name="user_name" placeholder='Name' onChange={onChange} />
         <input type="text" id='user-subject' name="user_subject" placeholder='Subject' onChange={onChange} />
         <textarea rows="5" id='message' placeholder='Message' name='message' onChange={onChange} />
         <a className='custom-build__form-button' href={`mailto:alyssa.voccia@gmail.com?subject=${userName + ' - ' + userSubject}&body=${userMessage}`}>Submit</a>
       </form>
-    </div>
+    </section>
   )
 }
 

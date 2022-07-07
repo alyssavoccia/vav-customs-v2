@@ -14,16 +14,12 @@ function Gallery() {
         </div>
       </div>
       <div className="gallery-masonry container">
-        { GalleryData.map((img, i) => {
-            return (
-              <div className='item-container' key={i}>
-                <img className='item' src={img.src} alt={img.alt} key={i + 1} />
-                <div className="item-container__overlay">
-                  <p key={i + 2} className="item-text">{img.alt}</p>
-                </div>
-              </div>
-            )
-          })
+        {GalleryData.map((img, i) => {
+          return (
+            <div className='item-container' key={i}>
+              <img className='item' src={img.src} alt={img.alt} key={i + 1} />
+            </div>
+          )})
         }
       </div>
     </section>

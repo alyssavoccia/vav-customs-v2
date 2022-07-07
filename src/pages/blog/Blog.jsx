@@ -3,10 +3,10 @@ import './blog.scss';
 
 function BlogPosts() {
   return (
-    <div className='blog container' id='custom-build'>
+    <section className='blog container' id='custom-build'>
       <h1 className='section-title'>Blog Posts</h1>
       <BlogPostsGrid />
-    </div>
+    </section>
   )
 }
 

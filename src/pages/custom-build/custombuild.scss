@@ -25,10 +25,11 @@
     input,
     textarea {
       border-radius: 5px;
-      border: 1px solid #222;
+      border: none;
+      background-color: #e8e8e8;
       font-family: 'Roboto', sans-serif;
       margin: .5rem 0;
-      padding: .5rem 1rem;
+      padding: 1rem 1.2rem;
     }
 
     input:focus,
@@ -61,11 +62,5 @@
         }
       }
     }
-  }
-
-  .small-text {
-    font-style: italic;
-    font-size: .9rem;
-    font-weight: 300;
   }
 }

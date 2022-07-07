@@ -1,6 +1,7 @@
 .services {
   height: 100%;
-  margin: 1rem 0 6rem 0;
+  margin: 0;
+  padding-top: 0;
 
   &__content {
     align-items: center;
@@ -70,7 +71,6 @@
   margin: 0 auto;
   width: 60px
 }
-
 
 
 .btn {
