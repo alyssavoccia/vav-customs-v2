@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../../firebase.config';
-import { v4 as uuidv4 } from 'uuid';
 import './custombuild.scss';
 
 function CustomBuild() {
@@ -27,7 +26,7 @@ function CustomBuild() {
     const storeImage = async (image) => {
       return new Promise((resolve, reject) => {
         const storage = getStorage();
-        const fileName = `${name}-${image.name}-${uuidv4()}`;
+        const fileName = `${name}-${image.name}`;
 
         const storageRef = ref(storage, 'images/' + fileName);
 
@@ -36,7 +35,7 @@ function CustomBuild() {
         uploadTask.on(
           'state_changed',
           (snapshot) => {
-            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            // const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             switch (snapshot.state) {
               case 'paused':
                 break;
@@ -74,7 +73,14 @@ function CustomBuild() {
 
     delete formDataCopy.images;
 
-    const docRef = await addDoc(collection(db, 'customBuilds'), formDataCopy);
+    await addDoc(collection(db, 'customBuilds'), formDataCopy);
+
+    setFormData({
+      name: '',
+      email: '',
+      message: '',
+      images: {}
+    });
   };
 
   const onChange = (e) => {
