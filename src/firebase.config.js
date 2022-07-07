@@ -1,17 +1,15 @@
 import firebase from 'firebase/compat/app';
-import { getStorage } from 'firebase/storage';
 import 'firebase/compat/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCWMYE7K8eSzkFKfUwdmaiRhCswLHLJKHE",
-  authDomain: "vav-customs.firebaseapp.com",
-  projectId: "vav-customs",
-  storageBucket: "vav-customs.appspot.com",
-  messagingSenderId: "764757673702",
-  appId: "1:764757673702:web:34f7798cf6aac964c01d27",
-  measurementId: "G-74S7ZNH3FL"
+  apiKey: "AIzaSyDBPtroV0ZXTu2kIVtUIhCkOZU9uwxm7XQ",
+  authDomain: "vavcustoms-e3273.firebaseapp.com",
+  projectId: "vavcustoms-e3273",
+  storageBucket: "vavcustoms-e3273.appspot.com",
+  messagingSenderId: "573062538765",
+  appId: "1:573062538765:web:a6e7a5aca100229afc9744",
+  measurementId: "G-F6K1B9PX16"
 };
 
 firebase.initializeApp(firebaseConfig);
-export const storage = getStorage();
 export const db = firebase.firestore();

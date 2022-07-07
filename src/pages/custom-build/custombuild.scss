@@ -26,7 +26,7 @@
     textarea {
       border-radius: 5px;
       border: none;
-      background-color: #e8e8e8;
+      background-color: #f3f4f6;
       font-family: 'Roboto', sans-serif;
       margin: .5rem 0;
       padding: 1rem 1.2rem;
@@ -37,14 +37,33 @@
       outline: none;
     }
 
+    .image-label {
+      margin-top: .5rem;
+
+      .small-text {
+        font-size: 12px;
+      }
+    }
+
+    .file-input::-webkit-file-upload-button {
+      background-color: #d6d3d1;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: .5rem .75rem;
+    }
+
     &-button {
       align-self: flex-start;
       background-color: #c6ac8f;
       border-radius: 5px;
+      border: none;
+      cursor: pointer;
       font-size: 1rem;
       transition: background-color .3s ease-in-out;
       margin-top: 1rem;
       padding: .5rem 1rem;
+      text-align: left;
       width: 100%;
     
       &::after {
