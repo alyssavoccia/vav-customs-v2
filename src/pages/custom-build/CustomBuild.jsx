@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { HashLink } from 'react-router-hash-link';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../../firebase.config';
 import { toast } from 'react-toastify';
+import emailjs from '@emailjs/browser';
 import './custombuild.scss';
 
 function CustomBuild() {
@@ -82,6 +84,13 @@ function CustomBuild() {
     document.getElementById('images').value = null;
 
     toast.success('Form successfully submitted!');
+
+    emailjs.send('service_fpgitnp', 'template_sn40wi6', formData, 'x0Y0O4zI5XkZwpMCk')
+    .then((result) => {
+
+    }, (error) => {
+        console.log(error.text);
+    });
   };
 
   const onChange = (e) => {
@@ -112,6 +121,10 @@ function CustomBuild() {
         <input type='file' className='file-input' id='images' max='2' accept='.jpg,.png,.jpeg' multiple onChange={onChange} />
         <button type='submit' className='custom-build__form-button'>Submit</button>
       </form>
+      <div className='custom-build__gallery'>
+        <p>Want to see some of the stuff I've made?</p>
+        <HashLink to='/#gallery' className='custom-build__gallery-button'>Check out the gallery!</HashLink>
+      </div>
     </section>
   )
 }

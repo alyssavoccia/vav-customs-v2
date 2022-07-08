@@ -82,4 +82,20 @@
       }
     }
   }
+
+  &__gallery {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+    margin-top: 4rem;
+
+    &-button {
+      background-color: #78716c;
+      border: none;
+      border-radius: 5px;
+      color: #FFF;
+      font-size: 1rem;
+      padding: .5rem .75rem;
+    }
+  }
 }
