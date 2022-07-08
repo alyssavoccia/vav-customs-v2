@@ -1,6 +1,7 @@
 import { useEffect, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import SmoothScroll from 'smooth-scroll';
 import Client from 'shopify-buy/index.unoptimized.umd';
 import CartContext from "./context/cart/CartContext";
@@ -43,21 +44,20 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
-      <div className="app">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="the-shop" element={<TheShop />} />
-          <Route path="/blog-posts" element={<Blog />} />
-          <Route path='/custom-build' element={<CustomBuild />} />
-          <Route path='/store' element={<Store />} />
-        </Routes>
-        <Contact />
-        <Cart /> 
-      </div>
+    <div className="app">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="the-shop" element={<TheShop />} />
+        <Route path="/blog-posts" element={<Blog />} />
+        <Route path='/custom-build' element={<CustomBuild />} />
+        <Route path='/store' element={<Store />} />
+      </Routes>
+      <Contact />
+      <Cart /> 
+      
       <ToastContainer />
-    </>
+    </div>
   );
 }
 
