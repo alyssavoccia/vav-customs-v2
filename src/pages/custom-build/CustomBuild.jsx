@@ -17,7 +17,6 @@ function CustomBuild() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    // UPDATE THIS TO TOAST ERROR
     if (images.length > 2) {
       toast.error('Max 2 images allowed for upload.');
       return;
