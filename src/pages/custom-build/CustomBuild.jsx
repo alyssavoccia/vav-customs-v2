@@ -112,7 +112,8 @@ function CustomBuild() {
   return (
     <section className='custom-build container' id='custom-build'>
       <h1 className='section-title'>Custom Build</h1>
-      <p className='section-description'>Have a custom build that you're looking for? Fill out the form below to get started! Want to see stuff I've built? <HashLink to='/#gallery' className='custom-build__gallery-link'>Check out my work!</HashLink></p>
+      <p className='section-description'>Have a custom build that you're looking for? Fill out the form below to get started!</p>
+      <HashLink to='/#gallery' className='custom-build__gallery-link'>Check out my work</HashLink>
       <form className='custom-build__form' onSubmit={onSubmit}>
         <input type="text" id='name' name="user_name" placeholder='Name' onChange={onChange} value={name} />
         <input type="email" id='email' name="email" placeholder='Email' onChange={onChange} value={email} />

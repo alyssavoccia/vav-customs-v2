@@ -17,6 +17,7 @@
   }
 
   &__gallery-link {
+    font-size: 1.2rem;
     font-weight: bold;
     position: relative;
 
@@ -24,7 +25,7 @@
       border-top: 10px solid #c6ac8f;
       content: "";
       position: absolute;
-      top: 12px;
+      top: 14px;
       left: -2px;
       right: 0;
       height: 1rem;
