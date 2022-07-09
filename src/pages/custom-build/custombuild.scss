@@ -16,6 +16,28 @@
     width: 500px;
   }
 
+  &__gallery-link {
+    font-weight: bold;
+    position: relative;
+
+    &:after {
+      border-top: 10px solid #c6ac8f;
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: -2px;
+      right: 0;
+      height: 1rem;
+      margin: 0 auto;
+      z-index: -1;
+      width: 175px;
+    }
+
+    &:hover {
+      opacity: .9;
+    }
+  }
+
   &__form {
     display: flex;
     flex-direction: column;
