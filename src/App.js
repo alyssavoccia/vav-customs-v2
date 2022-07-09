@@ -1,5 +1,5 @@
 import { useEffect, useContext } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SmoothScroll from 'smooth-scroll';
@@ -13,6 +13,7 @@ import CustomBuild from './pages/custom-build/CustomBuild';
 import Store from "./pages/store/Store";
 import Contact from "./components/contact/Contact";
 import Cart from "./components/shopify/cart/Cart";
+import Admin from './pages/admin/Admin';
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -21,6 +22,7 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
 
 function App() {
   const { dispatch } = useContext(CartContext);
+  const location = useLocation();
 
   useEffect(() => {
     // Create client
@@ -45,15 +47,16 @@ function App() {
 
   return (
     <div className="app">
-      <Navbar />
+      {location.pathname !== '/admin' && <Navbar />}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="the-shop" element={<TheShop />} />
         <Route path="/blog-posts" element={<Blog />} />
         <Route path='/custom-build' element={<CustomBuild />} />
         <Route path='/store' element={<Store />} />
+        <Route path='/admin' element={<Admin />} />
       </Routes>
-      <Contact />
+      {location.pathname !== '/admin' && <Contact />}
       <Cart /> 
       
       <ToastContainer />
