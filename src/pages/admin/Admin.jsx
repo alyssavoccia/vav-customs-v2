@@ -1,9 +1,10 @@
+import SignIn from '../../components/sign-in/SignIn';
 import './admin.scss';
 
 function Admin() {
   return (
     <section className='admin'>
-      <h1>Admin</h1>
+      <SignIn />
     </section>
   )
 }
