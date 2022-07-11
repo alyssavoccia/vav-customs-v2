@@ -1,18 +1,56 @@
 .admin-navbar {
-  background-color: #52525b;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  background-color: #222;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2), 0 4px 6px -4px rgb(0 0 0 / 0.2);
   min-height: 100vh;
+  margin-right: 75px;
   position: fixed;
-  width: 75px;
+  width: 64px;
+  z-index: 100;
 
   &__logo {
     align-items: center;
     display: flex;
     justify-content: center;
+    margin: .5rem 0;
     padding: .5rem;
     
     &-img {
       width: 50px;
+    }
+  }
+
+  &__list {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &-item {
+      margin: 1rem auto;
+      text-align: center;
+      width: 100%;
+    }
+
+    &-link {
+      border-radius: 5px;
+      color: #FFF;
+      padding: 1rem;
+      width: 100%;
+
+      &:hover {
+        background-color: #383838;
+        color: #e7e5e4;
+      }
+
+      &-active {
+        background-color: #383838;
+        color: #e7e5e4;
+      }
+    }
+
+    &-icon {
+      height: 1.1rem;
+      width: 1.1rem;
     }
   }
 }

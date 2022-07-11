@@ -60,10 +60,9 @@ function App() {
         <Route path='/admin' element={<Admin />} />
         <Route path='/admin/dashboard' element={<Dashboard />} />
       </Routes>
+      <ToastContainer />
       {!location.pathname.includes('/admin') && <Contact />}
       <Cart /> 
-      
-      <ToastContainer />
     </div>
   );
 }
