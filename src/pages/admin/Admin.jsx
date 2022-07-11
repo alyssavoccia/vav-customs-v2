@@ -1,21 +1,19 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import SignIn from '../../components/sign-in/SignIn';
-import DashboardGrid from '../../components/admin-dashboard/DashboardGrid';
 import './admin.scss';
 
 function Admin() {
   const auth = getAuth();
   const isMounted = useRef(true);
-  const [currentUser, setCurrentUser] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isMounted) {
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          setCurrentUser(true);
-        } else {
-          setCurrentUser(false);
+          navigate('/admin/dashboard');
         }
       })
     }
@@ -24,10 +22,7 @@ function Admin() {
 
   return (
     <section className='admin'>
-      {currentUser
-        ? <DashboardGrid />
-        : <SignIn />
-      }
+      <SignIn />
     </section>
   )
 }

@@ -1,7 +1,7 @@
-import '../../global.scss';
+import AboutLogoBoat from '../../../assets/about-me2.jpg';
+import AboutLogoWorking from '../../../assets/about-me.jpg';
+import '../../../global.scss';
 import './about.scss';
-import AboutLogoBoat from '../../assets/about-me2.jpg';
-import AboutLogoWorking from '../../assets/about-me.jpg';
 
 function About() {
   return (

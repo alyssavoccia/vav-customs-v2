@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import '../../global.scss';
+import '../../../global.scss';
 import './services.scss';
 
 function Services() {

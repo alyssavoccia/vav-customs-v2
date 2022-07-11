@@ -6,6 +6,7 @@
   justify-content: space-between;
   padding: 0 2rem;
   position: fixed;
+  text-align: center;
   width: 100%;
   z-index: 100;
 
@@ -129,6 +130,5 @@
     &__toggler {
       display: none;
     }
-
   }
 }

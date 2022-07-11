@@ -1,5 +1,5 @@
 .about-me {
-  padding: 3rem 0;
+  padding: 5rem 0; 
 
   &__content {
     align-items: center;
@@ -31,20 +31,14 @@
   grid-template-columns: repeat(4, 1fr);
 
   &__item-bottom {
-    grid-column: 2 / -1;
+    grid-column: 1 / span 3;
     grid-row: 1;
   }
 
   &__item-top {
     grid-row: 1;
-    grid-column: 1 / span 2;
-    padding-top: 20%;
+    grid-column: 3 / -1;
+    padding-top: 40%;
     z-index: 1;
-  }
-}
-
-@media (min-width: 760px) {
-  .about-me {
-    padding: 5rem 0; 
   }
 }

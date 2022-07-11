@@ -14,6 +14,8 @@ import Store from "./pages/store/Store";
 import Contact from "./components/contact/Contact";
 import Cart from "./components/shopify/cart/Cart";
 import Admin from './pages/admin/Admin';
+import Dashboard from "./pages/dashboard/Dashboard";
+import AdminNavbar from "./components/admin-dashboard/navbar/AdminNavbar";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -47,7 +49,8 @@ function App() {
 
   return (
     <div className="app">
-      {location.pathname !== '/admin' && <Navbar />}
+      {!location.pathname.includes('/admin') && <Navbar />}
+      {location.pathname.includes('/admin/') && <AdminNavbar />}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="the-shop" element={<TheShop />} />
@@ -55,8 +58,9 @@ function App() {
         <Route path='/custom-build' element={<CustomBuild />} />
         <Route path='/store' element={<Store />} />
         <Route path='/admin' element={<Admin />} />
+        <Route path='/admin/dashboard' element={<Dashboard />} />
       </Routes>
-      {location.pathname !== '/admin' && <Contact />}
+      {!location.pathname.includes('/admin') && <Contact />}
       <Cart /> 
       
       <ToastContainer />
