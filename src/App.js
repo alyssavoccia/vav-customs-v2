@@ -53,7 +53,7 @@ function App() {
   return (
     <div className="app">
       {!location.pathname.includes('/admin') && <Navbar />}
-      {location.pathname.includes('/admin/') && <AdminNavbar />}
+      {(location.pathname === '/admin' || location.pathname === '/admin/') ? <></> : location.pathname.includes('/admin/') && <AdminNavbar />}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="the-shop" element={<TheShop />} />
