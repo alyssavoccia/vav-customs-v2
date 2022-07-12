@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import RecentBuildsGrid from '../../components/admin-dashboard/recent-builds-grid/RecentBuildsGrid';
+import RecentBuildsGrid from '../../../components/admin-dashboard/recent-builds-grid/RecentBuildsGrid';
 import './dashboard.scss';
 
 function Dashboard() {

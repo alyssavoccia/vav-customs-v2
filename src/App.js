@@ -13,10 +13,12 @@ import CustomBuild from './pages/custom-build/CustomBuild';
 import Store from "./pages/store/Store";
 import Contact from "./components/contact/Contact";
 import Cart from "./components/shopify/cart/Cart";
-import Admin from './pages/admin/Admin';
-import Dashboard from "./pages/dashboard/Dashboard";
-import CreateBlog from './pages/create-blog/CreateBlog';
+import Admin from './pages/admin-dashboard/admin/Admin';
+import Dashboard from "./pages/admin-dashboard/dashboard/Dashboard";
+import CreateBlog from './pages/admin-dashboard/create-blog/CreateBlog';
 import AdminNavbar from "./components/admin-dashboard/navbar/AdminNavbar";
+import CustomBuilds from "./pages/admin-dashboard/custom-builds/CustomBuilds";
+import BlogPosts from "./pages/admin-dashboard/blog-posts/BlogPosts";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -60,9 +62,9 @@ function App() {
         <Route path='/store' element={<Store />} />
         <Route path='/admin' element={<Admin />} />
         <Route path='/admin/dashboard' element={<Dashboard />} />
-        <Route path='/admin/custom-builds' element={<Dashboard />} />
+        <Route path='/admin/custom-builds' element={<CustomBuilds />} />
         <Route path='/admin/create-blog' element={<CreateBlog />} />
-        <Route path='/admin/blog-posts' element={<CreateBlog />} />
+        <Route path='/admin/blog-posts' element={<BlogPosts />} />
       </Routes>
       <ToastContainer />
       {!location.pathname.includes('/admin') && <Contact />}
