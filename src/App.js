@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import SmoothScroll from 'smooth-scroll';
 import Client from 'shopify-buy/index.unoptimized.umd';
 import CartContext from "./context/cart/CartContext";
+import PrivateRoute from "./components/PrivateRoute";
 import Navbar from "./components/navbar/Navbar";
 import Landing from "./pages/Landing";
 import TheShop from "./pages/the-shop/TheShop";
@@ -61,10 +62,18 @@ function App() {
         <Route path='/custom-build' element={<CustomBuild />} />
         <Route path='/store' element={<Store />} />
         <Route path='/admin' element={<Admin />} />
-        <Route path='/admin/dashboard' element={<Dashboard />} />
-        <Route path='/admin/custom-builds' element={<CustomBuilds />} />
-        <Route path='/admin/create-blog' element={<CreateBlog />} />
-        <Route path='/admin/blog-posts' element={<BlogPosts />} />
+        <Route path='/admin/dashboard' element={<PrivateRoute />}>
+          <Route path='/admin/dashboard' element={<Dashboard />} />
+        </Route>
+        <Route path='/admin/custom-builds' element={<PrivateRoute />}>
+          <Route path='/admin/custom-builds' element={<CustomBuilds />} />
+        </Route>
+        <Route path='/admin/create-blog' element={<PrivateRoute />}>
+          <Route path='/admin/create-blog' element={<CreateBlog />} />
+        </Route>
+        <Route path='/admin/blog-posts' element={<PrivateRoute />}>
+          <Route path='/admin/blog-posts' element={<BlogPosts />} />
+        </Route>
       </Routes>
       <ToastContainer />
       {!location.pathname.includes('/admin') && <Contact />}
