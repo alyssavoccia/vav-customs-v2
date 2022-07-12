@@ -1,4 +1,5 @@
 .recent-custom-builds__grid {
+  align-items: stretch;
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
@@ -20,7 +21,34 @@
     }
 
     &-body {
+      padding: 1rem;
+
+      &-img {
+        margin-top: 1rem;
+        position: relative;
+
+        &-num {
+          align-items: center;
+          background-color: #c6ac8f;
+          border-radius: 50%;
+          display: flex;
+          font-weight: 600;
+          height: 35px;
+          justify-content: center;
+          overflow: hidden;
+          position: absolute;
+          right: -8px;
+          top: -8px;
+          width: 35px;
+          z-index: 100000;
+        }
+      }
+    }
+
+    &-footer {
+      border-top: 1px solid #efefef;
       padding: .5rem;
+      text-align: center;
     }
   }
 }
