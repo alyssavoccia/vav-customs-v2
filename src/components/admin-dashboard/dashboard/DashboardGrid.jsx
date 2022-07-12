@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import RecentBuildsGrid from '../recent-builds-grid/RecentBuildsGrid';
 import './dashboardGrid.scss';
 
@@ -10,6 +11,7 @@ function DashboardGrid() {
       <div className="dashboard-grid__section">
         <h2 className='dashboard-grid__section-title'>Recent Custom Build Inquiries</h2>
         <RecentBuildsGrid />
+        <Link className='btn' to='/admin/custom-builds'>View all inquires</Link>
       </div>
       <div className="dashboard-grid__section">
         <h2 className='dashboard-grid__section-title'>Recent Blog Entries</h2>

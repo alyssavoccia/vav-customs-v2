@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { getAuth } from 'firebase/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartArea, faScrewdriverWrench, faPenToSquare, faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons';
+import { faChartArea, faScrewdriverWrench, faPenToSquare, faBook, faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import miniLogo from '../../../assets/mini-logo.png';
 import './adminNavbar.scss';
 
@@ -28,6 +28,11 @@ function AdminNavbar() {
         <li className='admin-navbar__list-item'>
           <Link className={`${location.pathname === '/admin/create-blog' && 'admin-navbar__list-link-active'} admin-navbar__list-link`} to='/admin/create-blog'>
             <FontAwesomeIcon className='admin-navbar__list-icon' icon={faPenToSquare} />
+          </Link>
+        </li>
+        <li className='admin-navbar__list-item'>
+          <Link className={`${location.pathname === '/admin/blog-posts' && 'admin-navbar__list-link-active'} admin-navbar__list-link`} to='/admin/blog-posts'>
+            <FontAwesomeIcon className='admin-navbar__list-icon' icon={faBook} />
           </Link>
         </li>
         <li className='admin-navbar__list-item'>

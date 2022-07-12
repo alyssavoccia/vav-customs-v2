@@ -23,28 +23,3 @@
     }
   }
 }
-
-.btn {
-  align-self: center;
-  background-color: #c6ac8f;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  transition: background-color .3s ease-in-out;
-  padding: 1rem;
-  width: 250px;
-
-  &::after {
-    display: inline-block;
-    padding-left: .5rem;
-    content: "\0279E";
-    transition: transform 0.3s ease-out;
-  }
-
-  &:hover {
-    background-color: #eae0d5;
-
-    &::after {
-      transform: translateX(4px);
-    }
-  }
-}
