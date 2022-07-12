@@ -1,0 +1,40 @@
+.dashboard {
+  margin: 2rem auto;
+  padding-left: 4rem;
+  width: 100%;
+  max-width: 1500px;
+
+  &__section-title {
+    font-size: 1.3rem;
+    font-weight: 400;
+  }
+
+  &__header {
+    background-color: #c6ac8f;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    border-radius: .25rem;
+    margin: auto;
+    padding: .75rem 1.5rem;
+    width: 90%;
+  }
+
+  &__section {
+    align-self: flex-start;
+    background-color: #e4e4e7;
+    border-radius: .25rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    display: flex;
+    flex-direction: column;
+    margin: 2rem auto 0 auto;
+    padding: 1rem;
+    width: 90%;
+    max-width: 1500px;
+
+    .btn {
+      align-self: flex-end;
+      font-size: 1rem;
+      padding: .75rem;
+      width: 170px;
+    }
+  }
+}

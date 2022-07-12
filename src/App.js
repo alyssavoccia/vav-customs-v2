@@ -62,6 +62,7 @@ function App() {
         <Route path='/admin/dashboard' element={<Dashboard />} />
         <Route path='/admin/custom-builds' element={<Dashboard />} />
         <Route path='/admin/create-blog' element={<CreateBlog />} />
+        <Route path='/admin/blog-posts' element={<CreateBlog />} />
       </Routes>
       <ToastContainer />
       {!location.pathname.includes('/admin') && <Contact />}

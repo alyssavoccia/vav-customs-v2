@@ -4,6 +4,11 @@
   padding: 0;
 }
 
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
 body {
   color: #222;
   font-family: Roboto, sans-serif;
@@ -11,13 +16,11 @@ body {
   width: 100%;
 }
 
-#root {
-  display: grid;
-  height: 100vh;
-}
-
 .app {
-  display: grid;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 a {
