@@ -1,0 +1,26 @@
+.recent-custom-builds__grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+
+  &-card {
+    background-color: #FFF;
+    border-radius: .25rem;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    width: 300px;
+
+    &-name {
+      background-color: #222;
+      border-radius: .25rem .25rem 0 0;
+      color: #FFF;
+      padding: .5rem;
+      text-align: center;
+    }
+
+    &-body {
+      padding: .5rem;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { HashLink } from 'react-router-hash-link';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '../../firebase.config';
 import { toast } from 'react-toastify';
 import emailjs from '@emailjs/browser';
@@ -68,7 +68,8 @@ function CustomBuild() {
 
     const formDataCopy = {
       ...formData,
-      imgUrls
+      imgUrls,
+      timestamp: serverTimestamp()
     };
 
     delete formDataCopy.images;

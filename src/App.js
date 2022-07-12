@@ -15,6 +15,7 @@ import Contact from "./components/contact/Contact";
 import Cart from "./components/shopify/cart/Cart";
 import Admin from './pages/admin/Admin';
 import Dashboard from "./pages/dashboard/Dashboard";
+import CreateBlog from './pages/create-blog/CreateBlog';
 import AdminNavbar from "./components/admin-dashboard/navbar/AdminNavbar";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
@@ -59,6 +60,8 @@ function App() {
         <Route path='/store' element={<Store />} />
         <Route path='/admin' element={<Admin />} />
         <Route path='/admin/dashboard' element={<Dashboard />} />
+        <Route path='/admin/custom-builds' element={<Dashboard />} />
+        <Route path='/admin/create-blog' element={<CreateBlog />} />
       </Routes>
       <ToastContainer />
       {!location.pathname.includes('/admin') && <Contact />}

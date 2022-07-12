@@ -26,7 +26,7 @@ function AdminNavbar() {
           </Link>
         </li>
         <li className='admin-navbar__list-item'>
-          <Link className='admin-navbar__list-link' to='/admin/create-blog'>
+          <Link className={`${location.pathname === '/admin/create-blog' && 'admin-navbar__list-link-active'} admin-navbar__list-link`} to='/admin/create-blog'>
             <FontAwesomeIcon className='admin-navbar__list-icon' icon={faPenToSquare} />
           </Link>
         </li>
