@@ -69,7 +69,8 @@ function CustomBuild() {
     const formDataCopy = {
       ...formData,
       imgUrls,
-      timestamp: serverTimestamp()
+      timestamp: serverTimestamp(),
+      seen: false
     };
 
     delete formDataCopy.images;

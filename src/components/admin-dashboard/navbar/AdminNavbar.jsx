@@ -1,5 +1,8 @@
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { getAuth } from 'firebase/auth';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../../../firebase.config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartArea, faScrewdriverWrench, faPenToSquare, faBook, faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import miniLogo from '../../../assets/mini-logo.png';
@@ -8,6 +11,34 @@ import './adminNavbar.scss';
 function AdminNavbar() {
   const auth = getAuth();
   const location = useLocation();
+  const [unseenBuilds, setUnseenBuilds] = useState(null);
+
+  useEffect(() => {
+    const fetchBuildsLength = async () => {
+      try {
+        const customBuildsRef = collection(db, 'customBuilds');
+        
+        const q = query(
+          customBuildsRef,
+          where('seen', '==', false)
+        );
+
+        const querySnap = await getDocs(q);
+
+        const builds = [];
+
+        querySnap.forEach((doc) => {
+          return builds.push(doc.data());
+        });
+
+        setUnseenBuilds(builds);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchBuildsLength();
+  }, []);
 
   return (
     <div className="admin-navbar">
@@ -24,6 +55,7 @@ function AdminNavbar() {
           <Link className={`${location.pathname === '/admin/custom-builds' && 'admin-navbar__list-link-active'} admin-navbar__list-link`} to='/admin/custom-builds'>
             <FontAwesomeIcon className='admin-navbar__list-icon' icon={faScrewdriverWrench} />
           </Link>
+          {(unseenBuilds && unseenBuilds.length > 0) && <span className='admin-navbar__list-item-number'>{unseenBuilds.length}</span>}
         </li>
         <li className='admin-navbar__list-item'>
           <Link className={`${location.pathname === '/admin/create-blog' && 'admin-navbar__list-link-active'} admin-navbar__list-link`} to='/admin/create-blog'>

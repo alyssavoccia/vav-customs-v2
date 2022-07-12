@@ -27,8 +27,24 @@
 
     &-item {
       margin: 1rem auto;
+      position: relative;
       text-align: center;
       width: 100%;
+
+      &-number {
+        align-items: center;
+        background-color: #ef4444;
+        border-radius: 50%;
+        color: #FFF;
+        display: flex;
+        font-size: .9rem;
+        height: 20px;
+        justify-content: center;
+        position: absolute;
+        right: 5px;
+        top: -10px;
+        width: 20px;
+      }
     }
 
     &-link {
