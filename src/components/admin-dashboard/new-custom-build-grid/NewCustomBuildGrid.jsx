@@ -35,6 +35,7 @@ function NewCustomBuildGrid() {
       className='mySwiper'
     >
       {builds && builds.map(build => (
+        !build.seen &&
         <SwiperSlide key={build.name}>
           <CustomBuildCard build={build} />
         </SwiperSlide>
