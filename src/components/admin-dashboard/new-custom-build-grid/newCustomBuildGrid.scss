@@ -1,0 +1,22 @@
+.mySwiper {
+  margin: 2rem auto;
+  width: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #222;
+}
+
+.swiper-button-prev {
+  padding-right: 1rem;
+}
+
+.swiper-button-next {
+  padding-left: 1rem;
+}
