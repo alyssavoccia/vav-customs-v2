@@ -8,7 +8,7 @@ import CustomBuildsContext from '../../../context/custom-builds/CustomBuildsCont
 import CustomBuildCard from '../custom-build-card/CustomBuildCard';
 import './newCustomBuildGrid.scss';
 
-function NewCustomBuildGrid() {
+function NewCustomBuildsGrid() {
   const { builds } = useContext(CustomBuildsContext);
 
   return (
@@ -44,4 +44,4 @@ function NewCustomBuildGrid() {
   )
 }
 
-export default NewCustomBuildGrid;
+export default NewCustomBuildsGrid;

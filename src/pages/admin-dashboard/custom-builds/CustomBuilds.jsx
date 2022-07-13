@@ -1,4 +1,4 @@
-import NewCustomBuildGrid from '../../../components/admin-dashboard/new-custom-build-grid/NewCustomBuildGrid';
+import NewCustomBuildsGrid from '../../../components/admin-dashboard/new-custom-builds-grid/NewCustomBuildsGrid';
 import './customBuilds.scss';
 
 function CustomBuilds() {
@@ -9,7 +9,7 @@ function CustomBuilds() {
       </div>
       <div className="dashboard__section">
         <h2 className='dashboard__section-title'>New Custom Build Inquiries</h2>
-        <NewCustomBuildGrid />
+        <NewCustomBuildsGrid />
       </div>
       <div className="dashboard__section">
         <h2 className='dashboard__section-title'>All Custom Build Inquiries</h2>
