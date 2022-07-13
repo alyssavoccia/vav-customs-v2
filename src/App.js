@@ -1,10 +1,15 @@
 import { useEffect, useContext } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+import { onAuthStateChanged, getAuth } from "firebase/auth";
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from './firebase.config';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import SmoothScroll from 'smooth-scroll';
 import Client from 'shopify-buy/index.unoptimized.umd';
 import CartContext from "./context/cart/CartContext";
+import CustomBuildsContext from "./context/custom-builds/CustomBuildsContext";
 import PrivateRoute from "./components/PrivateRoute";
 import Navbar from "./components/navbar/Navbar";
 import Landing from "./pages/Landing";
@@ -28,7 +33,9 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
 
 function App() {
   const { dispatch } = useContext(CartContext);
+  const { dispatch: setCustomBuilds } = useContext(CustomBuildsContext);
   const location = useLocation();
+  const auth = getAuth();
 
   useEffect(() => {
     // Create client
@@ -49,7 +56,32 @@ function App() {
         dispatch({ type: 'CHECKOUT_FOUND', payload: res});
       });
     }
-  }, [dispatch]);
+
+    onAuthStateChanged(auth, async userAuth => {
+      if (userAuth) {
+        const fetchCustomBuilds = async () => {
+          try {
+            // Get reference
+            const customBuildsRef = collection(db, 'customBuilds');
+    
+            const querySnap = await getDocs(customBuildsRef);
+    
+            const recentBuilds = [];
+    
+            querySnap.forEach((doc) => {
+              recentBuilds.push(doc.data());
+            });
+    
+            setCustomBuilds({ type: 'CUSTOM_BUILDS_FOUND', payload: recentBuilds });
+          } catch (error) {
+            toast.error('Could not fetch recent builds');
+          }
+        };
+    
+        fetchCustomBuilds();
+      }
+    })
+  }, [auth, dispatch, setCustomBuilds]);
 
   return (
     <div className="app">

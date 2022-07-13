@@ -13,7 +13,7 @@ function CustomBuildCard({ build }) {
         </div>
       </div>
       <div className='custom-build-card__footer'>
-        <p>Requested {new Date(build.timestamp.seconds * 1000).toLocaleDateString('en-US')}</p>
+        <p>Requested: {new Date(build.timestamp.seconds * 1000).toLocaleDateString('en-US')}</p>
         <Link className='custom-build-card__footer-link' to={`/admin/custom-build/${build.name}`}>View More</Link>
       </div>
     </div>

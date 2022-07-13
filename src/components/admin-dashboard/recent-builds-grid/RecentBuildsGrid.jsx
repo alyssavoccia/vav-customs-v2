@@ -1,55 +1,24 @@
-import { useEffect, useState } from 'react';
-import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
-import { db } from '../../../firebase.config';
-import { toast } from 'react-toastify';
+import { useEffect, useState, useContext } from 'react';
+import CustomBuildsContext from '../../../context/custom-builds/CustomBuildsContext';
 import CustomBuildCard from '../custom-build-card/CustomBuildCard';
 import './recentBuildsGrid.scss';
 
 function RecentBuildsGrid() {
-  const [customBuilds, setCustomBuilds] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { builds } = useContext(CustomBuildsContext);
+  const [recentBuilds, setRecentBuilds] = useState([]);
 
   useEffect(() => {
-    const fetchCustomBuilds = async () => {
-      try {
-        // Get reference
-        const customBuildsRef = collection(db, 'customBuilds');
-
-        const q = query(
-          customBuildsRef,
-          orderBy('timestamp', 'desc'),
-          limit(3)
-        );
-
-        const querySnap = await getDocs(q);
-
-        const recentBuilds = [];
-
-        querySnap.forEach((doc) => {
-          recentBuilds.push(doc.data());
-        });
-
-        setCustomBuilds(recentBuilds);
-        setLoading(false);
-      } catch (error) {
-        toast.error('Could not fetch recent builds');
-      }
-    };
-
-    fetchCustomBuilds();
-  }, []);
-
-  if (loading) {
-    return <p>Fetching recent requests!</p>
-  }
+    builds.sort((a, b) => b.timestamp - a.timestamp);
+    setRecentBuilds(builds.slice(0, 3));
+  }, [builds]);
 
   return (
     <div className='recent-custom-builds__grid'>
-      {customBuilds.map(build => (
-        <CustomBuildCard build={build} />
+      {recentBuilds.map(build => (
+        <CustomBuildCard key={build.name} build={build} />
       ))}
     </div>
   )
 }
 
-export default RecentBuildsGrid
+export default RecentBuildsGrid;
