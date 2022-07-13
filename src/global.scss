@@ -60,3 +60,21 @@
     }
   }
 }
+
+.dashboard__section {
+  align-self: flex-start;
+  background-color: #e4e4e7;
+  border-radius: .25rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto 0 auto;
+  padding: 1rem;
+  width: 90%;
+  max-width: 1500px;
+
+  &-title {
+    font-size: 1.3rem;
+    font-weight: 400;
+  }
+}

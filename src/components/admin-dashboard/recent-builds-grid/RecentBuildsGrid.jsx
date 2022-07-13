@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
 import { db } from '../../../firebase.config';
 import { toast } from 'react-toastify';
+import CustomBuildCard from '../custom-build-card/CustomBuildCard';
 import './recentBuildsGrid.scss';
 
 function RecentBuildsGrid() {
@@ -46,20 +46,7 @@ function RecentBuildsGrid() {
   return (
     <div className='recent-custom-builds__grid'>
       {customBuilds.map(build => (
-        <div key={build.name} className='recent-custom-builds__grid-card'>
-          <p className='recent-custom-builds__grid-card-name'>{build.name}</p>
-          <div className='recent-custom-builds__grid-card-body'>
-            <p>{build.message.slice(0, 75)}...</p>
-            <div className='recent-custom-builds__grid-card-body-img'>
-              {build.imgUrls && <img src={build.imgUrls[0]} alt='Custom build example' />}
-              {build.imgUrls.length > 1 && <span className='recent-custom-builds__grid-card-body-img-num'>2</span>}
-            </div>
-          </div>
-          <div className='recent-custom-builds__grid-card-footer'>
-            <p>Requested {new Date(build.timestamp.seconds * 1000).toLocaleDateString('en-US')}</p>
-            <Link className='recent-custom-builds__grid-card-footer-link' to={`/admin/custom-build/${build.name}`}>View More</Link>
-          </div>
-        </div>
+        <CustomBuildCard build={build} />
       ))}
     </div>
   )

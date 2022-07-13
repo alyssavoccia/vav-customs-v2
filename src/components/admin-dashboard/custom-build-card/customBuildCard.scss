@@ -1,0 +1,61 @@
+.custom-build-card {
+  background-color: #FFF;
+  border-radius: .25rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  min-width: 250px;
+  max-width: 300px;
+
+  &__name {
+    background-color: #222;
+    border-radius: .25rem .25rem 0 0;
+    color: #FFF;
+    padding: .5rem;
+    text-align: center;
+  }
+
+  &__body {
+    padding: 1rem;
+
+    &-img {
+      margin-top: 1rem;
+      position: relative;
+
+      &-num {
+        align-items: center;
+        background-color: #c6ac8f;
+        border-radius: 50%;
+        display: flex;
+        font-size: .9rem;
+        font-weight: 600;
+        height: 28px;
+        justify-content: center;
+        overflow: hidden;
+        position: absolute;
+        right: -14px;
+        top: -14px;
+        width: 28px;
+        z-index: 100000;
+      }
+    }
+  }
+
+  &__footer {
+    align-items: center;
+    border-top: 1px solid #efefef;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    padding: .5rem;
+    text-align: center;
+
+    &-link {
+      color: #c6ac8f;
+      font-weight: 600;
+      transition: all .3s ease-in-out;
+
+      &:hover {
+        color: #d7c5b1;
+      }
+    }
+  }
+}

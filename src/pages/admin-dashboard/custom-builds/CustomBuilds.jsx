@@ -6,6 +6,12 @@ function CustomBuilds() {
       <div className='custom-builds__header'>
         <h1>Custom Build Requests</h1>
       </div>
+      <div className="dashboard__section">
+        <h2 className='dashboard__section-title'>New Custom Build Inquiries</h2>
+      </div>
+      <div className="dashboard__section">
+        <h2 className='dashboard__section-title'>All Custom Build Inquiries</h2>
+      </div>
     </div>
   )
 }
