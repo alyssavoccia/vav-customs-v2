@@ -17,7 +17,7 @@ function CustomBuildCard({ build, seen }) {
           <p>Requested: {new Date(build.timestamp.seconds * 1000).toLocaleDateString('en-US')}</p>
           <Link className='custom-build-card__footer-link' to={`/admin/custom-build/${build.name}`}>View More</Link>
         </div>
-        {(seen !== undefined && !seen) && <span className='custom-build-card__tag'>New!</span>}
+        {(seen !== undefined && seen) && <span className='custom-build-card__tag'>Viewed</span>}
       </div>
     </>
   )

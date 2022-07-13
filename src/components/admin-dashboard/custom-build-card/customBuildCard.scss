@@ -62,16 +62,16 @@
 
   &__tag {
     align-items: center;
-    background-color: #22c55e;
-    border-radius: 50%;
-    color: #FFF;
+    background-color: #d1d5db;
+    border-radius: .25rem;
+    color: #222;
     display: flex;
     font-size: .8rem;
-    height: 35px;
+    height: 25px;
     justify-content: center;
     position: absolute;
-    right: -13px;
-    top: -13px;
-    width: 35px;
+    right: 5px;
+    top: 7px;
+    width: 50px;
   }
 }

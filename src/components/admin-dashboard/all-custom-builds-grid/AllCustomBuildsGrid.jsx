@@ -1,10 +1,14 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import CustomBuildsContext from '../../../context/custom-builds/CustomBuildsContext';
 import CustomBuildCard from '../custom-build-card/CustomBuildCard';
 import './allCustomBuildsGrid.scss';
 
 function AllCustomBuildsGrid() {
   const { builds } = useContext(CustomBuildsContext);
+
+  useEffect(() => {
+    builds.sort((a, b) => b.timestamp - a.timestamp);
+  }, [builds]);
 
   return (
     <div className="all-custom-builds__grid">
