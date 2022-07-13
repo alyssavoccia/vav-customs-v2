@@ -48,9 +48,23 @@
     }
 
     &-footer {
+      align-items: center;
       border-top: 1px solid #efefef;
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
       padding: .5rem;
       text-align: center;
+
+      &-link {
+        color: #c6ac8f;
+        font-weight: 600;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          color: #d7c5b1;
+        }
+      }
     }
   }
 }

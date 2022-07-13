@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
 import { db } from '../../../firebase.config';
 import { toast } from 'react-toastify';
@@ -54,7 +55,10 @@ function RecentBuildsGrid() {
               {build.imgUrls.length > 1 && <span className='recent-custom-builds__grid-card-body-img-num'>2</span>}
             </div>
           </div>
-          <p className='recent-custom-builds__grid-card-footer'>Requested on: {new Date(build.timestamp.seconds * 1000).toLocaleDateString('en-US')}</p>
+          <div className='recent-custom-builds__grid-card-footer'>
+            <p>Requested {new Date(build.timestamp.seconds * 1000).toLocaleDateString('en-US')}</p>
+            <Link className='recent-custom-builds__grid-card-footer-link' to={`/admin/custom-build/${build.name}`}>View More</Link>
+          </div>
         </div>
       ))}
     </div>
