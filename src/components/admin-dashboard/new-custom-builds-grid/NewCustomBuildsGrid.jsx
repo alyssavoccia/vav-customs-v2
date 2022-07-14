@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, A11y } from 'swiper';
 import 'swiper/css/navigation';
@@ -10,6 +10,11 @@ import './newCustomBuildGrid.scss';
 
 function NewCustomBuildsGrid() {
   const { builds } = useContext(CustomBuildsContext);
+  const [recentBuilds, setRecentBuilds] = useState([]);
+
+  useEffect(() => {
+    setRecentBuilds(builds.sort((a, b) => b.timestamp - a.timestamp));
+  }, [builds]);
 
   return (
     <Swiper
@@ -34,7 +39,7 @@ function NewCustomBuildsGrid() {
       modules={[Navigation, A11y]}
       className='mySwiper'
     >
-      {builds && builds.map(build => (
+      {recentBuilds && recentBuilds.map(build => (
         !build.seen &&
         <SwiperSlide key={build.name}>
           <CustomBuildCard build={build} />
