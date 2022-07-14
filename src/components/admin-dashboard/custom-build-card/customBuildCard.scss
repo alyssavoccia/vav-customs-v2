@@ -1,7 +1,6 @@
 .custom-build-card {
   background-color: #FFF;
   border-radius: .25rem;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   position: relative;
   min-width: 250px;
   max-width: 300px;
@@ -24,7 +23,6 @@
       &-num {
         align-items: center;
         background-color: #c6ac8f;
-        border-radius: 50%;
         display: flex;
         font-size: .9rem;
         font-weight: 600;
@@ -32,8 +30,8 @@
         justify-content: center;
         overflow: hidden;
         position: absolute;
-        right: -14px;
-        top: -14px;
+        right: 0;
+        top: 0;
         width: 28px;
         z-index: 100000;
       }
@@ -63,7 +61,6 @@
   &__tag {
     align-items: center;
     background-color: #d1d5db;
-    border-radius: .25rem;
     color: #222;
     display: flex;
     font-size: .8rem;

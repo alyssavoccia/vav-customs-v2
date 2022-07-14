@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import './customBuildCard.scss';
 
 function CustomBuildCard({ build, seen }) {
+  const userName = build.name.split(' ').join('-');
+
   return (
     <>
       <div key={build.name} className='custom-build-card'>
@@ -15,7 +17,7 @@ function CustomBuildCard({ build, seen }) {
         </div>
         <div className='custom-build-card__footer'>
           <p>Requested: {new Date(build.timestamp.seconds * 1000).toLocaleDateString('en-US')}</p>
-          <Link className='custom-build-card__footer-link' to={`/admin/custom-build/${build.name}`}>View More</Link>
+          <Link className='custom-build-card__footer-link' to={`/admin/custom-build/${userName}`}>View More</Link>
         </div>
         {(seen !== undefined && seen) && <span className='custom-build-card__tag'>Viewed</span>}
       </div>

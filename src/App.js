@@ -24,6 +24,7 @@ import Dashboard from "./pages/admin-dashboard/dashboard/Dashboard";
 import CreateBlog from './pages/admin-dashboard/create-blog/CreateBlog';
 import AdminNavbar from "./components/admin-dashboard/navbar/AdminNavbar";
 import CustomBuilds from "./pages/admin-dashboard/custom-builds/CustomBuilds";
+import BuildCardMoreInfo from "./pages/admin-dashboard/build-card-more-info/BuildCardMoreInfo";
 import BlogPosts from "./pages/admin-dashboard/blog-posts/BlogPosts";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
@@ -99,6 +100,9 @@ function App() {
         </Route>
         <Route path='/admin/custom-builds' element={<PrivateRoute />}>
           <Route path='/admin/custom-builds' element={<CustomBuilds />} />
+        </Route>
+        <Route path='/admin/custom-build/:userName' element={<PrivateRoute />}>
+          <Route path='/admin/custom-build/:userName' element={<BuildCardMoreInfo />} />
         </Route>
         <Route path='/admin/create-blog' element={<PrivateRoute />}>
           <Route path='/admin/create-blog' element={<CreateBlog />} />

@@ -39,7 +39,7 @@
 .btn {
   align-self: center;
   background-color: #c6ac8f;
-  border-radius: 5px;
+  border-radius: .25rem;
   font-size: 1.2rem;
   transition: background-color .3s ease-in-out;
   padding: 1rem;
@@ -65,7 +65,6 @@
   align-self: flex-start;
   background-color: #e4e4e7;
   border-radius: .25rem;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   display: flex;
   flex-direction: column;
   margin: 2rem auto 0 auto;
@@ -76,5 +75,17 @@
   &-title {
     font-size: 1.3rem;
     font-weight: 400;
+  }
+}
+
+.dashboard__header {
+  background-color: #c6ac8f;
+  border-radius: .25rem;
+  margin: auto;
+  padding: .75rem 1.5rem;
+  width: 90%;
+
+  h1 {
+    font-size: 1.75rem;
   }
 }
