@@ -27,8 +27,10 @@ function BuildCardMoreInfo() {
       <div className='dashboard__header'>
         <h1>{build.name}</h1>
       </div>
+      <div className='more-info__button-section'>
+        <Link className='btn btn-secondary' to='/admin/custom-builds'>Back to All Builds</Link>
+      </div>
       <div className="dashboard__section">
-        <Link to='/admin/custom-builds'>← Back to All Builds</Link>
         <div className="more-info__section">
           <div className='more-info__section-images'>
             {build.imgUrls.map((img, i) => (
@@ -36,10 +38,15 @@ function BuildCardMoreInfo() {
             ))}
           </div>
           <div className="more-info__section-description">
-            <h2 className='dashboard__section-title'>Custom Build Description</h2>
+            <h2>Custom Build Description</h2>
             <p className='more-info__description'>{build.message}</p>
+            <h2>Contact Information</h2>
+            <p>{build.email}</p>
           </div>
         </div>
+      </div>
+      <div className="dashboard__section">
+        <h2>Build Progress</h2>
       </div>
     </div>
   )
