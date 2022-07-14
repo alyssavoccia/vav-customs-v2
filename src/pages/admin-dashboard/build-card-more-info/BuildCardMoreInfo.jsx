@@ -23,7 +23,9 @@ function BuildCardMoreInfo() {
       <div className='dashboard__header'>
         <h1>{build[0].name}</h1>
       </div>
-      <Link to='/admin/custom-builds'>← Back to All Builds</Link>
+      <div className="dashboard__section">
+        <Link to='/admin/custom-builds'>← Back to All Builds</Link>
+      </div>
     </div>
   )
 }
