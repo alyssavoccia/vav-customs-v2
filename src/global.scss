@@ -61,6 +61,18 @@
   }
 }
 
+.dashboard__header {
+  background-color: #c6ac8f;
+  border-radius: .25rem;
+  margin: auto;
+  padding: .75rem 1.5rem;
+  width: 90%;
+
+  h1 {
+    font-size: 1.75rem;
+  }
+}
+
 .dashboard__section {
   align-self: flex-start;
   background-color: #e4e4e7;
@@ -75,17 +87,5 @@
   &-title {
     font-size: 1.3rem;
     font-weight: 400;
-  }
-}
-
-.dashboard__header {
-  background-color: #c6ac8f;
-  border-radius: .25rem;
-  margin: auto;
-  padding: .75rem 1.5rem;
-  width: 90%;
-
-  h1 {
-    font-size: 1.75rem;
   }
 }

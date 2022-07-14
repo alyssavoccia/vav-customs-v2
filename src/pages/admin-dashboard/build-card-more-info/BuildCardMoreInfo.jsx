@@ -10,9 +10,13 @@ function BuildCardMoreInfo() {
   const params = useParams();
 
   useEffect(() => {
-    setBuild(builds.filter(item => item.name === params.userName.split('-').join(' ')));
-    setLoading(false);
-  }, [builds, params.userName]);
+    if (builds) {
+      const currentName = params.userName.split('-').join(' ');
+      const currentBuild = builds.filter(item => item.name === currentName);
+      setBuild(currentBuild[0]);
+      build && setLoading(false);
+    }
+  }, [builds, params.userName, build]);
 
   if (loading) {
     return <p>Loading user info</p>
@@ -21,10 +25,21 @@ function BuildCardMoreInfo() {
   return (
     <div className='more-info'>
       <div className='dashboard__header'>
-        <h1>{build[0].name}</h1>
+        <h1>{build.name}</h1>
       </div>
       <div className="dashboard__section">
         <Link to='/admin/custom-builds'>← Back to All Builds</Link>
+        <div className="more-info__section">
+          <div className='more-info__section-images'>
+            {build.imgUrls.map((img, i) => (
+              <img className='more-info__section-images-img' key={i} src={img} alt='Custom Build Example' />
+            ))}
+          </div>
+          <div className="more-info__section-description">
+            <h2 className='dashboard__section-title'>Custom Build Description</h2>
+            <p className='more-info__description'>{build.message}</p>
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -3,4 +3,58 @@
   padding-left: 4rem;
   width: 100%;
   max-width: 1500px;
+
+  &__section {
+    display: flex;
+    // flex: 1 2;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+
+    &-images {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      justify-content: center;
+
+      &-img {
+        width: 250px;
+      }
+    }
+  }
+
+  &__description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin: 1rem 0;
+  }
+}
+
+@media (min-width: 765px) {
+  .more-info {
+    &__section {
+      &-images {
+        flex-direction: row;
+      }
+    }
+  }
+}
+
+@media (min-width: 975px) {
+  .more-info {
+
+    &__section {
+      flex-direction: row;
+
+      &-images {
+        flex-direction: column;
+
+        &-img {
+          min-width: 350px;
+        }
+      }
+    }
+  }
 }
