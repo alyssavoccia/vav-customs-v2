@@ -70,7 +70,7 @@ function CustomBuild() {
       ...formData,
       imgUrls,
       timestamp: serverTimestamp(),
-      status: 'notViewed'
+      status: 'Not Viewed'
     };
 
     delete formDataCopy.images;

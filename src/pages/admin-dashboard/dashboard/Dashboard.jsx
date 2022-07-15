@@ -11,7 +11,7 @@ function Dashboard() {
     <div className="dashboard__section">
       <h2 className='dashboard__section-title'>Recent Custom Build Inquiries</h2>
       <RecentBuildsGrid />
-      <Link className='btn' to='/admin/custom-builds'>View all inquires</Link>
+      <Link className='btn btn-primary' to='/admin/custom-builds'>View all inquires</Link>
     </div>
     <div className="dashboard__section">
       <h2 className='dashboard__section-title'>Recent Blog Entries</h2>
