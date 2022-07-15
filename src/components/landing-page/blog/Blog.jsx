@@ -9,7 +9,7 @@ function Blog() {
           <p className="blog__content-text-main">Interested in reading more?</p>
           <p>Check out my blog!</p>
         </div>
-        <Link className='btn' to='/blog-posts'>See Blog Posts</Link>
+        <Link className='btn btn-primary' to='/blog-posts'>See Blog Posts</Link>
       </div>
     </section>
   )
