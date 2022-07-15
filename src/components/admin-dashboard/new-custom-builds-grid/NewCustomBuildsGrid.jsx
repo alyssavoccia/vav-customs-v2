@@ -21,7 +21,7 @@ function NewCustomBuildsGrid() {
       breakpoints={{
         1024: {
           slidesPerView: 3,
-          spaceBetween: 10
+          spaceBetween: 0
         },
         768: {
           slidesPerView: 2
@@ -40,10 +40,10 @@ function NewCustomBuildsGrid() {
       className='mySwiper'
     >
       {recentBuilds && recentBuilds.map(build => (
-        !build.seen &&
-        <SwiperSlide key={build.name}>
-          <CustomBuildCard build={build} />
-        </SwiperSlide>
+        build.status === 'Not Viewed' &&
+          <SwiperSlide key={build.name}>
+            <CustomBuildCard build={build} />
+          </SwiperSlide>
       ))}
     </Swiper>
   )

@@ -9,11 +9,11 @@ function CustomBuilds() {
         <h1>Custom Build Requests</h1>
       </div>
       <div className="dashboard__section">
-        <h2 className='dashboard__section-title'>New Custom Build Inquiries</h2>
+        <h2 className='dashboard__section-title'>New Custom Build Requests</h2>
         <NewCustomBuildsGrid />
       </div>
       <div className="dashboard__section">
-        <h2 className='dashboard__section-title'>All Custom Build Inquiries</h2>
+        <h2 className='dashboard__section-title'>All Custom Build Requests</h2>
         <AllCustomBuildsGrid />
       </div>
     </div>
