@@ -33,7 +33,7 @@ function Services() {
               <p className="services__shop-info-text-title">Want to see what goes on behind the scenes?</p>
               <p>See the shop setup, what tools I use, and what I recommend to get started!</p>
             </div>
-            <Link className='btn' to='/the-shop'>Check out The Shop!</Link>
+            <Link className='btn btn-primary' to='/the-shop'>Check out The Shop!</Link>
           </div>
         </div>
       </div>
