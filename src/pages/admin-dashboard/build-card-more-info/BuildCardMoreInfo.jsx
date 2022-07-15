@@ -47,6 +47,12 @@ function BuildCardMoreInfo() {
       </div>
       <div className="dashboard__section">
         <h2>Build Progress</h2>
+        <div className="more-info__section-build-status">
+          <h3>Build Status</h3>
+        </div>
+        <div className="more-info__section-notes">
+          <textarea></textarea>
+        </div>  
       </div>
     </div>
   )

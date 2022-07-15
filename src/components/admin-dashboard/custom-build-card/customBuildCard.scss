@@ -70,5 +70,15 @@
     right: 5px;
     top: 5px;
     width: 50px;
+
+    &-in-progress {
+      background-color: #fbbf24;
+      width: 80px;
+    }
+
+    &-completed {
+      background-color: #22c55e;
+      width: 75px;
+    }
   }
 }

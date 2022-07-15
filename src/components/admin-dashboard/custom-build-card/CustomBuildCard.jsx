@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './customBuildCard.scss';
 
-function CustomBuildCard({ build, seen }) {
+function CustomBuildCard({ build, status }) {
   const userName = build.name.split(' ').join('-');
 
   return (
@@ -19,7 +19,7 @@ function CustomBuildCard({ build, seen }) {
           <p>Requested: {new Date(build.timestamp.seconds * 1000).toLocaleDateString('en-US')}</p>
           <Link className='custom-build-card__footer-link' to={`/admin/custom-build/${userName}`}>View More</Link>
         </div>
-        {(seen !== undefined && seen) && <span className='custom-build-card__tag'>Viewed</span>}
+        {status && status !== 'Not Viewed' && <span className={`custom-build-card__tag ${status === 'In Progress' && 'custom-build-card__tag-in-progress'} ${status === 'Completed' && 'custom-build-card__tag-completed'}`}>{status}</span>}
       </div>
     </>
   )

@@ -20,7 +20,7 @@ function AdminNavbar() {
         
         const q = query(
           customBuildsRef,
-          where('seen', '==', false)
+          where('status', '==', 'Not Viewed')
         );
 
         const querySnap = await getDocs(q);

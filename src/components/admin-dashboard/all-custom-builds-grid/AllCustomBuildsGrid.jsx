@@ -14,7 +14,7 @@ function AllCustomBuildsGrid() {
   return (
     <div className="all-custom-builds__grid">
       {customBuilds.map(build => (
-        <CustomBuildCard key={build.name} build={build} seen={build.seen} className='all-custom-builds__grid-card' />
+        <CustomBuildCard key={build.name} build={build} status={build.status} className='all-custom-builds__grid-card' />
       ))}
     </div>
   )
