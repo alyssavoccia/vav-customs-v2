@@ -24,11 +24,8 @@ function SignIn() {
     try {
       const auth = getAuth();
 
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email, password);
 
-      if (userCredential.user) {
-        console.log('logged on');
-      }
     } catch (error) {
       toast.error('Incorrect login information');
     } 

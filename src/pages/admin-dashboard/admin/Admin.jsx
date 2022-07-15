@@ -14,6 +14,8 @@ function Admin() {
       onAuthStateChanged(auth, (user) => {
         if (user) {
           navigate('/admin/dashboard');
+        } else {
+          navigate('/admin');
         }
       })
     }

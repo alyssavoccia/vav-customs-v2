@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { getAuth } from 'firebase/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { getAuth, signOut } from 'firebase/auth';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../../firebase.config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,6 +11,7 @@ import './adminNavbar.scss';
 function AdminNavbar() {
   const auth = getAuth();
   const location = useLocation();
+  const navigate = useNavigate();
   const [unseenBuilds, setUnseenBuilds] = useState(null);
 
   useEffect(() => {
@@ -69,7 +70,10 @@ function AdminNavbar() {
         </li>
         <li className='admin-navbar__list-item'>
           <Link className='admin-navbar__list-link' to='/admin'>
-            <FontAwesomeIcon className='admin-navbar__list-icon' icon={faArrowRightToBracket} onClick={() => auth.signOut()} />
+            <FontAwesomeIcon className='admin-navbar__list-icon' icon={faArrowRightToBracket} onClick={() => {
+              signOut(auth);
+              navigate('/admin');
+            }} />
           </Link>
         </li>
       </ul>
