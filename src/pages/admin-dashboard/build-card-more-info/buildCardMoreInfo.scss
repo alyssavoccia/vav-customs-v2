@@ -20,7 +20,6 @@
     flex-direction: column;
     gap: 2rem;
     justify-content: center;
-    // margin-top: 2rem;
 
     &-images {
       align-items: center;
@@ -37,9 +36,63 @@
     &-build-status {
       margin: 1rem 0;
 
-      h3 {
+      label {
         font-size: 1.2rem;
         font-weight: 450;
+      }
+
+      &__form-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+
+        & .form-button {
+          background-color: #d6d3d1;
+          border: none;
+          border-radius: .25rem;
+          cursor: pointer;
+          padding: .5rem 1rem;
+          transition: all .3s ease-in-out;
+
+          &:hover {
+            background-color: #c6ac8f;
+          }
+        }
+
+        & .form-button-active {
+          background-color: #c6ac8f;
+        }
+      }
+    }
+
+    &-notes {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        font-size: 1.2rem;
+        font-weight: 450;
+      }
+
+      textarea {
+        border: none;
+        border-radius: .25rem;
+        height: 10rem;
+        margin-top: 1rem;
+        width: 100%;
+      }
+    }
+
+    &-btn {
+      background-color: #222;
+      border: none;
+      color: #FFF;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: all .3s ease-in-out;
+
+      &:hover {
+        background-color: #4e4e4e;
       }
     }
   }

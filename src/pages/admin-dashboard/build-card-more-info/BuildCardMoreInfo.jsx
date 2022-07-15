@@ -47,12 +47,42 @@ function BuildCardMoreInfo() {
       </div>
       <div className="dashboard__section">
         <h2>Build Progress</h2>
-        <div className="more-info__section-build-status">
-          <h3>Build Status</h3>
-        </div>
-        <div className="more-info__section-notes">
-          <textarea></textarea>
-        </div>  
+        <form>
+          <div className="more-info__section-build-status">
+            <label>Build Status</label>
+            <div className="more-info__section-build-status__form-buttons">
+              <button 
+                type='button'
+                className={build.status === 'Not Viewed' ? 'form-button form-button-active' : 'form-button'}
+              >
+                Not Viewed
+              </button>
+              <button 
+                type='button'
+                className={build.status === 'Viewed' ? 'form-button form-button-active' : 'form-button'}
+              >
+                Viewed
+              </button>
+              <button 
+                type='button'
+                className={build.status === 'In Progress' ? 'form-button form-button-active' : 'form-button'}
+              >
+                In Progress
+              </button>
+              <button 
+                type='button'
+                className={build.status === 'Completed' ? 'form-button form-button-active' : 'form-button'}
+              >
+                Completed
+              </button>
+            </div>
+          </div>
+          <div className="more-info__section-notes">
+            <label>Build Notes</label>
+            <textarea value={build.notes}></textarea>
+          </div>
+          <button className='btn more-info__section-btn' type='submit'>Submit</button>
+        </form>
       </div>
     </div>
   )
