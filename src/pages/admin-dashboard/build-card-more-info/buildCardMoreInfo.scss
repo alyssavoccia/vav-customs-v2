@@ -77,8 +77,12 @@
       textarea {
         border: none;
         border-radius: .25rem;
+        font-family: Roboto, sans-serif;
+        font-size: 1rem;
         height: 10rem;
         margin-top: 1rem;
+        outline: none;
+        padding: 1rem;
         width: 100%;
       }
     }

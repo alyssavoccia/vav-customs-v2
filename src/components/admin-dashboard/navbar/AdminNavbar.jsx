@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { getAuth, signOut } from 'firebase/auth';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../../firebase.config';
@@ -11,7 +11,6 @@ import './adminNavbar.scss';
 function AdminNavbar() {
   const auth = getAuth();
   const location = useLocation();
-  const navigate = useNavigate();
   const [unseenBuilds, setUnseenBuilds] = useState(null);
 
   useEffect(() => {
@@ -69,11 +68,8 @@ function AdminNavbar() {
           </Link>
         </li>
         <li className='admin-navbar__list-item'>
-          <Link className='admin-navbar__list-link' to='/admin'>
-            <FontAwesomeIcon className='admin-navbar__list-icon' icon={faArrowRightToBracket} onClick={() => {
-              signOut(auth);
-              navigate('/admin');
-            }} />
+          <Link className='admin-navbar__list-link' to='/admin' onClick={() => signOut(auth)} >
+            <FontAwesomeIcon className='admin-navbar__list-icon' icon={faArrowRightToBracket} />
           </Link>
         </li>
       </ul>
