@@ -1,5 +1,8 @@
 import { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { collection, getDocs, doc, updateDoc } from 'firebase/firestore';
+import { db } from '../../../firebase.config';
+import { toast } from 'react-toastify';
 import CustomBuildsContext from '../../../context/custom-builds/CustomBuildsContext';
 import './buildCardMoreInfo.scss';
 
@@ -7,6 +10,7 @@ function BuildCardMoreInfo() {
   const { builds } = useContext(CustomBuildsContext);
   const [loading, setLoading] = useState(true);
   const [build, setBuild] = useState(null);
+  const [formData, setFormData] = useState([]);
   const params = useParams();
 
   useEffect(() => {
@@ -14,9 +18,48 @@ function BuildCardMoreInfo() {
       const currentName = params.userName.split('-').join(' ');
       const currentBuild = builds.filter(item => item.name === currentName);
       setBuild(currentBuild[0]);
-      build && setLoading(false);
+
+      if (build) {
+        setFormData({
+          status: build.status,
+          notes: build.notes
+        });
+
+        setLoading(false);
+      }
     }
   }, [builds, params.userName, build]);
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const customBuildsRef = collection(db, 'customBuilds');
+    
+      const querySnap = await getDocs(customBuildsRef);
+
+      console.log(querySnap)
+
+      querySnap.forEach((document) => {
+        const docRef = doc(db, 'customBuilds', document.id);
+
+        if (build.name === document.data().name) {
+          updateDoc(docRef, formData);
+          toast.success('Successfully updated build progress!');
+        }
+      });
+
+    } catch (error) {
+      toast.error('Could not update build progress.');
+    }
+  };
+
+  const onChange = e => {
+    setFormData(prevState => ({
+      ...prevState,
+      [e.target.id]: e.target.value
+    }));
+  };
 
   if (loading) {
     return <p>Loading user info</p>
@@ -53,25 +96,37 @@ function BuildCardMoreInfo() {
             <div className="more-info__section-build-status__form-buttons">
               <button 
                 type='button'
-                className={build.status === 'Not Viewed' ? 'form-button form-button-active' : 'form-button'}
+                id='status'
+                value='Not Viewed'
+                onClick={onChange}
+                className={formData.status === 'Not Viewed' ? 'form-button form-button-active' : 'form-button'}
               >
                 Not Viewed
               </button>
               <button 
                 type='button'
-                className={build.status === 'Viewed' ? 'form-button form-button-active' : 'form-button'}
+                id='status'
+                value='Viewed'
+                onClick={onChange}
+                className={formData.status === 'Viewed' ? 'form-button form-button-active' : 'form-button'}
               >
                 Viewed
               </button>
               <button 
                 type='button'
-                className={build.status === 'In Progress' ? 'form-button form-button-active' : 'form-button'}
+                id='status'
+                value='In Progress'
+                onClick={onChange}
+                className={formData.status === 'In Progress' ? 'form-button form-button-active' : 'form-button'}
               >
                 In Progress
               </button>
               <button 
                 type='button'
-                className={build.status === 'Completed' ? 'form-button form-button-active' : 'form-button'}
+                id='status'
+                value='Completed'
+                onClick={onChange}
+                className={formData.status === 'Completed' ? 'form-button form-button-active' : 'form-button'}
               >
                 Completed
               </button>
@@ -79,9 +134,9 @@ function BuildCardMoreInfo() {
           </div>
           <div className="more-info__section-notes">
             <label>Build Notes</label>
-            <textarea value={build.notes}></textarea>
+            <textarea id='notes' onChange={onChange} value={formData.notes}></textarea>
           </div>
-          <button className='btn more-info__section-btn' type='submit'>Submit</button>
+          <button className='btn more-info__section-btn' type='submit' onClick={onSubmit}>Update</button>
         </form>
       </div>
     </div>
