@@ -3,4 +3,36 @@
   padding-left: 4rem;
   width: 100%;
   max-width: 1500px;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    &-input {
+      border: none;
+      border-radius: .25rem;
+      font-size: 1rem;
+      margin: 1rem;
+      outline: none;
+      padding: .5rem 1rem;
+      width: 50%;
+    }
+
+    &-body {
+      border: none;
+      border-radius: .25rem;
+      margin: 1rem;
+      width: 75%;
+    }
+
+    .btn {
+      align-self: flex-start;
+      background-color: #222;
+      border: none;
+      color: #FFF;
+      cursor: pointer;
+      font-family: inherit;
+      margin: 1rem;
+    }
+  }
 }

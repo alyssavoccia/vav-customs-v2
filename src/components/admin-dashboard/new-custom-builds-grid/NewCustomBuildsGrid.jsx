@@ -21,10 +21,11 @@ function NewCustomBuildsGrid() {
       breakpoints={{
         1024: {
           slidesPerView: 3,
-          spaceBetween: 0
+          spaceBetween: 10
         },
         768: {
-          slidesPerView: 2
+          slidesPerView: 2,
+          spaceBetween: 5
         },
         390: {
           slidesPerView: 1,
