@@ -7,7 +7,7 @@ import CustomBuildsContext from '../../../context/custom-builds/CustomBuildsCont
 import './buildCardMoreInfo.scss';
 
 function BuildCardMoreInfo() {
-  const { builds } = useContext(CustomBuildsContext);
+  const { dispatch, builds } = useContext(CustomBuildsContext);
   const [loading, setLoading] = useState(true);
   const [build, setBuild] = useState(null);
   const [formData, setFormData] = useState([]);
@@ -33,6 +33,10 @@ function BuildCardMoreInfo() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
+    const buildIndex = builds.findIndex(obj => obj.name === build.name);
+    builds[buildIndex].status = formData.status;
+    builds[buildIndex].notes = formData.notes;
+
     try {
       const customBuildsRef = collection(db, 'customBuilds');
     
@@ -45,6 +49,7 @@ function BuildCardMoreInfo() {
 
         if (build.name === document.data().name) {
           updateDoc(docRef, formData);
+          dispatch({ type: 'ADD_CUSTOM_BUILDS', payload: builds });
           toast.success('Successfully updated build progress!');
         }
       });

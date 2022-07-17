@@ -1,6 +1,6 @@
 const customBuildsReducer = (state, action) => {
   switch (action.type) {
-    case 'CUSTOM_BUILDS_FOUND':
+    case 'ADD_CUSTOM_BUILDS':
       return {
         ...state,
         builds: action.payload

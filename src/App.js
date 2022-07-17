@@ -73,7 +73,7 @@ function App() {
               recentBuilds.push(doc.data());
             });
     
-            setCustomBuilds({ type: 'CUSTOM_BUILDS_FOUND', payload: recentBuilds });
+            setCustomBuilds({ type: 'ADD_CUSTOM_BUILDS', payload: recentBuilds });
           } catch (error) {
             toast.error('Could not fetch recent builds');
           }
