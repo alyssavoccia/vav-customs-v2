@@ -1,7 +1,10 @@
 import { useState } from 'react';
+import { addDoc, collection } from 'firebase/firestore';
 import SunEditor from 'suneditor-react';
 import { blockquote, align, font, fontColor, fontSize, formatBlock, hiliteColor, horizontalRule, image, lineHeight, list, paragraphStyle, table, textStyle } from 'suneditor/src/plugins';
 import 'suneditor/dist/css/suneditor.min.css';
+import { toast } from 'react-toastify';
+import { db } from '../../../firebase.config';
 import './createBlog.scss';
 
 function CreateBlog() {
@@ -11,7 +14,7 @@ function CreateBlog() {
     body: ''
   });
 
-  const { title, imgUrl } = formData;
+  const { title, imgUrl, body } = formData;
 
   const options = {
     plugins: [
@@ -95,10 +98,23 @@ function CreateBlog() {
     ]
   };
 
-  const onSubmit = e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(formData.body.toString('html'))
+    try {
+      await addDoc(collection(db, 'blogPosts'), formData);
+
+      setFormData({
+        title: '',
+        imgUrl: '',
+        body: ''
+      });
+
+      toast.success('Blog post successfully submitted!');
+
+    } catch (error) {
+      toast.error('Unable to upload blog post.');
+    }
   };
 
   const onChange = e => {
@@ -124,7 +140,7 @@ function CreateBlog() {
         <form className='create-blog__form' onSubmit={onSubmit}>
           <input className='create-blog__form-input' type="text" id='title' name="blog_title" placeholder='Title' onChange={onChange} value={title} />
           <input className='create-blog__form-input' type="text" id='imgUrl' name="blog_img" placeholder='Cover Image URL' onChange={onChange} value={imgUrl} />
-          <SunEditor className='create-blog__form-body' setOptions={options} onChange={handleBodyChange} />
+          <SunEditor className='create-blog__form-body' setOptions={options} onChange={handleBodyChange} setContents={body} />
           <button className='btn' type='submit'>Post</button>
         </form>
       </div>
