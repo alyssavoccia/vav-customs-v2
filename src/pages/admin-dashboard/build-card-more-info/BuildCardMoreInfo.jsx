@@ -42,8 +42,6 @@ function BuildCardMoreInfo() {
     
       const querySnap = await getDocs(customBuildsRef);
 
-      console.log(querySnap)
-
       querySnap.forEach((document) => {
         const docRef = doc(db, 'customBuilds', document.id);
 
