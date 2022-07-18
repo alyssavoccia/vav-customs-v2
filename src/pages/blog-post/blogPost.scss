@@ -1,0 +1,38 @@
+.container {
+  height: 100%;
+  margin: 75px auto;
+  padding: 4rem 0;
+}
+
+.btn {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.blog-post{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  width: 100%;
+
+  &__content {
+    text-align: left;
+
+    &-header {
+      margin-bottom: 1rem;
+    }
+
+    &-body {
+      p {
+        margin-bottom: 1rem;
+
+        span {
+          font-size: 1.1rem !important;
+        }
+      }
+    }
+  }
+
+  &__sidebar {
+    justify-self: center;
+  }
+}

@@ -16,6 +16,7 @@ import Navbar from "./components/navbar/Navbar";
 import Landing from "./pages/Landing";
 import TheShop from "./pages/the-shop/TheShop";
 import Blog from "./pages/blog/Blog";
+import BlogPost from "./pages/blog-post/BlogPost";
 import CustomBuild from './pages/custom-build/CustomBuild';
 import Store from "./pages/store/Store";
 import Contact from "./components/contact/Contact";
@@ -107,6 +108,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="the-shop" element={<TheShop />} />
         <Route path="/blog-posts" element={<Blog />} />
+        <Route path="/blog-posts/:blogTitle" element={<BlogPost />} />
         <Route path='/custom-build' element={<CustomBuild />} />
         <Route path='/store' element={<Store />} />
         <Route path='/admin' element={<Admin />} />

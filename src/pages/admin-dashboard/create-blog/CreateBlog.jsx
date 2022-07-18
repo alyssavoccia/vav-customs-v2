@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import SunEditor from 'suneditor-react';
 import { blockquote, align, font, fontColor, fontSize, formatBlock, hiliteColor, horizontalRule, image, lineHeight, list, paragraphStyle, table, textStyle } from 'suneditor/src/plugins';
 import 'suneditor/dist/css/suneditor.min.css';
@@ -9,6 +9,7 @@ import './createBlog.scss';
 
 function CreateBlog() {
   const [formData, setFormData] = useState({
+    category: '',
     title: '',
     tagline: '',
     imgUrl: '',
@@ -103,9 +104,12 @@ function CreateBlog() {
     e.preventDefault();
 
     try {
+      formData.timestamp = serverTimestamp();
+
       await addDoc(collection(db, 'blogPosts'), formData);
 
       setFormData({
+        category: '',
         title: '',
         tagline: '',
         imgUrl: '',
@@ -113,7 +117,6 @@ function CreateBlog() {
       });
 
       toast.success('Blog post successfully submitted!');
-
     } catch (error) {
       toast.error('Unable to upload blog post.');
     }
@@ -140,6 +143,12 @@ function CreateBlog() {
       </div>
       <div className="dashboard__section">
         <form className='create-blog__form' onSubmit={onSubmit}>
+          <select className='create-blog__form-input'>
+            <option value='' disabled>Select Category</option>
+            <option value='woodworking'>Woodworking</option>
+            <option value='tutorial'>Tutorial</option>
+            <option value='misc'>Miscellaneous</option>
+          </select>
           <input className='create-blog__form-input' type="text" id='title' name="blog_title" placeholder='Title' onChange={onChange} value={title} />
           <input className='create-blog__form-input' type="text" id='tagline' name="blog_tagline" placeholder='Card Tagline' onChange={onChange} value={tagline} />
           <input className='create-blog__form-input' type="text" id='imgUrl' name="blog_img" placeholder='Cover Image URL' onChange={onChange} value={imgUrl} />
