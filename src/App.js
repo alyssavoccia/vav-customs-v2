@@ -10,6 +10,7 @@ import SmoothScroll from 'smooth-scroll';
 import Client from 'shopify-buy/index.unoptimized.umd';
 import CartContext from "./context/cart/CartContext";
 import CustomBuildsContext from "./context/custom-builds/CustomBuildsContext";
+import BlogPostsContext from "./context/blog-posts/BlogPostsContext";
 import PrivateRoute from "./components/PrivateRoute";
 import Navbar from "./components/navbar/Navbar";
 import Landing from "./pages/Landing";
@@ -35,6 +36,7 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
 function App() {
   const { dispatch } = useContext(CartContext);
   const { dispatch: setCustomBuilds } = useContext(CustomBuildsContext);
+  const { dispatch: setBlogPosts } = useContext(BlogPostsContext);
   const location = useLocation();
   const auth = getAuth();
 
@@ -58,6 +60,18 @@ function App() {
       });
     }
 
+    const fetchBlogPosts = async () => {
+      const blogPostsRef = collection(db, 'blogPosts');
+      const querySnap = await getDocs(blogPostsRef);
+      const blogPosts = [];
+
+      querySnap.forEach((doc) => {
+        blogPosts.push(doc.data());
+      });
+
+      setBlogPosts({ type: 'ADD_BLOG_POSTS', payload: blogPosts });
+    }
+    
     onAuthStateChanged(auth, async userAuth => {
       if (userAuth) {
         const fetchCustomBuilds = async () => {
@@ -81,6 +95,7 @@ function App() {
     
         fetchCustomBuilds();
       }
+      fetchBlogPosts();
     })
   }, [auth, dispatch, setCustomBuilds]);
 

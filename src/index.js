@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { CartProvider } from './context/cart/CartContext';
 import { CustomBuildsProvider } from './context/custom-builds/CustomBuildsContext';
+import { BlogPostsProvider } from './context/blog-posts/BlogPostsContext';
 import './index.css';
 import 'react-responsive-modal/styles.css';
 import App from './App';
@@ -12,11 +13,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <CartProvider>
-      <CustomBuildsProvider>
-        <Router>
-          <App />
-        </Router>
-      </CustomBuildsProvider>
+      <BlogPostsProvider>
+        <CustomBuildsProvider>
+          <Router>
+            <App />
+          </Router>
+        </CustomBuildsProvider>
+      </BlogPostsProvider>
     </CartProvider>
   </React.StrictMode>
 );
