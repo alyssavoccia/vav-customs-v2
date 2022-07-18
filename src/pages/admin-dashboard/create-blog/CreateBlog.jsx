@@ -10,11 +10,12 @@ import './createBlog.scss';
 function CreateBlog() {
   const [formData, setFormData] = useState({
     title: '',
+    tagline: '',
     imgUrl: '',
     body: ''
   });
 
-  const { title, imgUrl, body } = formData;
+  const { title, tagline, imgUrl, body } = formData;
 
   const options = {
     plugins: [
@@ -106,6 +107,7 @@ function CreateBlog() {
 
       setFormData({
         title: '',
+        tagline: '',
         imgUrl: '',
         body: ''
       });
@@ -139,6 +141,7 @@ function CreateBlog() {
       <div className="dashboard__section">
         <form className='create-blog__form' onSubmit={onSubmit}>
           <input className='create-blog__form-input' type="text" id='title' name="blog_title" placeholder='Title' onChange={onChange} value={title} />
+          <input className='create-blog__form-input' type="text" id='tagline' name="blog_tagline" placeholder='Card Tagline' onChange={onChange} value={tagline} />
           <input className='create-blog__form-input' type="text" id='imgUrl' name="blog_img" placeholder='Cover Image URL' onChange={onChange} value={imgUrl} />
           <SunEditor className='create-blog__form-body' setOptions={options} onChange={handleBodyChange} setContents={body} />
           <button className='btn' type='submit'>Post</button>

@@ -1,0 +1,32 @@
+.blog-post__card {
+  background-color: #f5f5f5;
+  border-radius: .25rem;
+  max-width: 300px;
+
+  img {
+    border-radius: .25rem .25rem 0 0;
+  }
+
+  &-body {
+    padding: 1rem;
+    text-align: left;
+
+    h2 {
+      margin-bottom: .5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    button {
+      background-color: #222;
+      border: none;
+      border-radius: .25rem;
+      color: #FFF;
+      cursor: pointer;
+      padding: .5rem .75rem;
+      text-transform: uppercase;
+    }
+  }
+}

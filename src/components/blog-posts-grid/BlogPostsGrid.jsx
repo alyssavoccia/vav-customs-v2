@@ -1,15 +1,23 @@
+import { useContext } from 'react';
+import BlogPostsContext from '../../context/blog-posts/BlogPostsContext';
+import BlogPostCard from '../blog-post-card/BlogPostCard';
 import './blogpostsgrid.scss';
 
 function StoreGrid() {
-  let blogPosts;
+  const { blogPosts } = useContext(BlogPostsContext)
 
   return (
-    <section className='blog-posts'>
+    <section className='blog-posts__grid'>
       {blogPosts 
-        ? <h1>Blogs</h1>
-        : <div className='blog-posts-no-items'>
-            <h2 className='blog-posts-no-items_title'>There are currently no blogs available.</h2>
-            <p className='blog-posts-no-items_info'>Please check back later!</p>
+        ? <div className="blog-posts__grid-cards">
+            {blogPosts.map(blog => (
+              // console.log(blog)
+              <BlogPostCard key={blog.title} blog={blog} />
+            ))}
+          </div>
+        : <div className='blog-posts__grid-no-items'>
+            <h2 className='blog-posts-__gridno-items_title'>There are currently no blogs available.</h2>
+            <p className='blog-posts__grid-no-items_info'>Please check back later!</p>
           </div> 
         
       }

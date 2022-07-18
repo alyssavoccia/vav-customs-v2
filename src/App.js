@@ -97,7 +97,7 @@ function App() {
       }
       fetchBlogPosts();
     })
-  }, [auth, dispatch, setCustomBuilds]);
+  }, [auth, dispatch, setBlogPosts, setCustomBuilds]);
 
   return (
     <div className="app">
