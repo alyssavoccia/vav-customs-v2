@@ -27,7 +27,7 @@ function Sidenav({ category, currentBlog }) {
                   </div>
                 </Link> 
               ))
-            : <p>Currently no posts available</p>
+            : <p className='sidenav__section-no-posts'>Currently no posts available</p>
           }
       </div>
       <div className='sidenav__section'>
@@ -36,7 +36,7 @@ function Sidenav({ category, currentBlog }) {
             ? recentPosts.map(post => (
               <div key={post.title} className="sidenav__section-post">
                 <Link  to={`/blog-posts/${post.title}`}>
-                  <h4 classsName='sidenav__section-post-title'>{post.title}</h4>
+                  <h4 classsname='sidenav__section-post-title'>{post.title}</h4>
                   <p>{post.tagline}</p>
                   <span>{post.timestamp.toDate().toDateString()}</span>
                 </Link>
