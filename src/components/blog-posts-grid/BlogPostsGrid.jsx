@@ -1,17 +1,21 @@
-import { useContext } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import BlogPostsContext from '../../context/blog-posts/BlogPostsContext';
 import BlogPostCard from '../blog-post-card/BlogPostCard';
 import './blogpostsgrid.scss';
 
 function StoreGrid() {
-  const { blogPosts } = useContext(BlogPostsContext)
+  const { blogPosts } = useContext(BlogPostsContext);
+  const [orderedBlogPosts, setOrderedBlogPosts] = useState(null);
+
+  useEffect(() => {
+    setOrderedBlogPosts(blogPosts.sort((a, b) => b.timestamp - a.timestamp));
+  }, [blogPosts]);
 
   return (
     <section className='blog-posts__grid'>
-      {blogPosts 
+      {orderedBlogPosts 
         ? <div className="blog-posts__grid-cards">
-            {blogPosts.map(blog => (
-              // console.log(blog)
+            {orderedBlogPosts.map(blog => (
               <BlogPostCard key={blog.title} blog={blog} />
             ))}
           </div>
