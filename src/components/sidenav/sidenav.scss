@@ -1,0 +1,29 @@
+.sidenav {
+  background-color: #f4f4f5;
+  border-radius: .25rem;
+  border-top: 2px solid #c6ac8f;
+  padding: 1rem;
+
+  &__section {
+    &:last-child {
+      margin-top: 2rem;
+    }
+    
+    &-post {
+      border-radius: .25rem;
+      margin-top: 1rem;
+
+      h4 {
+        color: #c6ac8f;
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      span {
+        color: #78716c;
+        font-size: .8rem;
+        font-weight: 300;
+      }
+    }
+  }
+}

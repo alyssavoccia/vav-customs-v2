@@ -1,5 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import BlogPostsContext from '../../context/blog-posts/BlogPostsContext';
+import './sidenav.scss';
 
 function Sidenav({ category, currentBlog }) {
   const { blogPosts } = useContext(BlogPostsContext);
@@ -15,30 +17,31 @@ function Sidenav({ category, currentBlog }) {
 
   return (
     <div className='sidenav'>
-      <div className='sidenav__similar'>
+      <div className='sidenav__section'>
         <h3>Similar Posts</h3>
           {similarPosts && similarPosts.length > 0
             ? similarPosts.map(post => (
-                <div key={post.title} className='sidenav__post'>
+                <Link key={post.title} className='sidenav__section-post'>
                   <div className="sidenav__post-header">
                     <p>{post.title}</p>
                   </div>
-                </div> 
+                </Link> 
               ))
             : <p>Currently no posts available</p>
           }
       </div>
-      <div className='sidenav__recent'>
+      <div className='sidenav__section'>
         <h3>Recent Posts</h3>
           {recentPosts && recentPosts.length > 0
             ? recentPosts.map(post => (
-                <div key={post.title} className="sidenav__post">
-                  <div className="sidenav__post-header">
-                    <p>{post.title}</p>
-                    <p>{post.tagline}</p>
-                  </div>
-                </div>
-              ))
+              <div key={post.title} className="sidenav__section-post">
+                <Link  to={`/blog-posts/${post.title}`}>
+                  <h4 classsName='sidenav__section-post-title'>{post.title}</h4>
+                  <p>{post.tagline}</p>
+                  <span>{post.timestamp.toDate().toDateString()}</span>
+                </Link>
+              </div>
+            ))
             : <p>Currently no posts available</p>
           }
       </div>
