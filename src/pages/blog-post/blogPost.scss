@@ -19,6 +19,15 @@
 
     &-header {
       margin-bottom: 1rem;
+
+      &__title {
+        font-size: 1.75rem;
+      }
+
+      &__info {
+        font-size: .9rem;
+        font-weight: 300;
+      }
     }
 
     &-body {

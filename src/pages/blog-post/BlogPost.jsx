@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import BlogPostsContext from '../../context/blog-posts/BlogPostsContext';
+import Sidenav from '../../components/sidenav/Sidenav';
 import './blogPost.scss';
 
 function BlogPost() {
@@ -32,13 +33,13 @@ function BlogPost() {
       <div className="blog-post">
         <article className="blog-post__content">
           <div className="blog-post__content-header">
-            <h1>{blogPost.title}</h1>
-            <span>{blogPost.category}</span>
+            <h1 className="blog-post__content-header__title">{blogPost.title}</h1>
+            <span className="blog-post__content-header__info">{blogPost.category} | {blogPost.timestamp.toDate().toDateString()}</span>
           </div>
           <div className='blog-post__content-body' dangerouslySetInnerHTML={{ __html: blogPost.body}}></div>
         </article>
         <div className="blog-post__sidebar">
-          <p>Sidenav</p>
+          <Sidenav category={blogPost.category} />
         </div>
       </div>
     </div>
