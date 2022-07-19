@@ -39,7 +39,7 @@ function BlogPost() {
           <div className='blog-post__content-body' dangerouslySetInnerHTML={{ __html: blogPost.body}}></div>
         </article>
         <div className="blog-post__sidebar">
-          <Sidenav category={blogPost.category} />
+          <Sidenav category={blogPost.category} currentBlog={blogPost.title} />
         </div>
       </div>
     </div>

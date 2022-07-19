@@ -11,6 +11,7 @@
 
 .blog-post{
   display: grid;
+  grid-gap: 1rem;
   grid-template-columns: 3fr 1fr;
   width: 100%;
 
