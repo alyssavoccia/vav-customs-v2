@@ -29,6 +29,9 @@ function Sidenav({ category, currentBlog }) {
               ))
             : <p className='sidenav__section-no-posts'>Currently no posts available</p>
           }
+          {similarPosts && similarPosts === 2 && 
+            <Link to={`/blog-posts/${category}`} className='sidenav__section-link'>See all</Link>
+          }
       </div>
       <div className='sidenav__section'>
         <h3>Recent Posts</h3>

@@ -1,4 +1,4 @@
-.container {
+.post-container {
   height: 100%;
   margin: 75px auto;
   padding: 4rem 0;
@@ -31,8 +31,13 @@
     }
 
     &-body {
+      h2 {
+        line-height: 20px;
+        margin-top: 2rem;
+      }
+
       p {
-        margin-bottom: 1rem;
+        margin: 1rem auto;
 
         span {
           font-size: 1.1rem !important;

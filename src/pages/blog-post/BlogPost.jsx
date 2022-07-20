@@ -28,7 +28,7 @@ function BlogPost() {
   }
 
   return (
-    <div className='container'>
+    <div className='container post-container'>
       <Link className='btn btn-secondary' to='/blog-posts'>Back to Blog Posts</Link>
       <div className="blog-post">
         <article className="blog-post__content">
