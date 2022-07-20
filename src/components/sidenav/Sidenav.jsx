@@ -44,6 +44,9 @@ function Sidenav({ category, currentBlog }) {
             ))
             : <p>Currently no posts available</p>
           }
+          {recentPosts && recentPosts.length === 2 && 
+            <Link to='/blog-posts' className='sidenav__section-link'>See all</Link>
+          }
       </div>
     </div>
   )

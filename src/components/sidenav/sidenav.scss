@@ -33,5 +33,17 @@
         font-weight: 300;
       }
     }
+
+    &-link {
+      color: #c6ac8f;
+      display: inline-block;
+      margin-top: 1rem;
+      text-decoration: underline;
+      transition: all .1s ease-in-out;
+
+      &:hover {
+        color: #d1bda5;
+      }
+    }
   }
 }
