@@ -6,6 +6,7 @@ import { db } from '../../firebase.config';
 import { toast } from 'react-toastify';
 import emailjs from '@emailjs/browser';
 import './custombuild.scss';
+// import coffeeTable from '../../../public/assets/table1.jpg';
 
 function CustomBuild() {
   const [formData, setFormData] = useState({
@@ -113,22 +114,51 @@ function CustomBuild() {
   };
 
   return (
-    <section className='custom-build container' id='custom-build'>
-      <h1 className='section-title'>Custom Build</h1>
-      <p className='section-description'>Have a custom build that you're looking for? Fill out the form below to get started!</p>
-      {/* <HashLink to='/#gallery' className='custom-build__gallery-link'>Check out my work</HashLink> */}
-      <form className='custom-build__form' onSubmit={onSubmit}>
-        <input type="text" id='name' name="user_name" placeholder='Name' onChange={onChange} value={name} />
-        <input type="email" id='email' name="email" placeholder='Email' onChange={onChange} value={email} />
-        <textarea rows="5" id='message' placeholder='Message' name='message' onChange={onChange} value={message} />
-        <label className='image-label'>Have some inspiration? <span className='small-text'>(2 file max)</span></label>
-        <input type='file' className='file-input' id='images' max='2' accept='.jpg,.png,.jpeg' multiple onChange={onChange} />
-        <button type='submit' className='custom-build__form-button'>Submit</button>
-      </form>
-      <div className="custom-build__why-block">
-        <h2>Why Custom?</h2>
-      </div>
-    </section>
+    <>
+      <section className='custom-build container' id='custom-build'>
+        <h1 className='section-title'>Custom Build</h1>
+        <p className='section-description'>Have a custom build that you're looking for? Fill out the form below to get started!</p>
+        <HashLink to='/#gallery' className='custom-build__gallery-link'>Check out my work</HashLink>
+        <form className='custom-build__form' onSubmit={onSubmit}>
+          <input type="text" id='name' name="user_name" placeholder='Name' onChange={onChange} value={name} />
+          <input type="email" id='email' name="email" placeholder='Email' onChange={onChange} value={email} />
+          <textarea rows="5" id='message' placeholder='Message' name='message' onChange={onChange} value={message} />
+          <label className='image-label'>Have some inspiration? <span className='small-text'>(2 file max)</span></label>
+          <input type='file' className='file-input' id='images' max='2' accept='.jpg,.png,.jpeg' multiple onChange={onChange} />
+          <button type='submit' className='custom-build__form-button'>Submit</button>
+        </form>
+      </section>
+      <section className="why-block">
+        <h2 className='why-block__title'>Why Custom?</h2>
+        <div className="why-block__section">
+          <div className="why-block__section-img">
+            <img src='/assets/grid-images/table1.jpg' alt='Custom wood coffee table' />
+          </div>
+          <div className="why-block__section-text">
+            <h3>Uniquely Yours</h3>
+            <p>While we do offer pre-made pieces, this option allows you to order a fully custom piece exactly how you want, with no two pieces being the same. The options are endless as you are able to specify type of wood and duotone, and specifications to name a few. Have a picture of a piece of furniture or item that you want to draw inspiration from? You are able to upload it and tell us why you like it and how you want it incorporated into your piece!</p>
+          </div>
+        </div>
+        <div className="why-block__section">
+          <div className="why-block__section-text">
+            <h3>More Options for Pieces</h3>
+            <p>Our store offers a variety of pre-made peieces, however, you might not find exactly what you're looking for. A custom order allows us to create pieces that you wouldn't otherwise find in our store because they are a specialized item.</p>
+          </div>
+          <div className="why-block__section-img">
+            <img src='/assets/grid-images/vanity1.jpg' alt='Custom wood coffee table' />
+          </div>
+        </div>
+        <div className="why-block__section">
+          <div className="why-block__section-img">
+            <img src='/assets/grid-images/bathroom1.jpg' alt='Custom wood coffee table' />
+          </div>
+          <div className="why-block__section-text">
+            <h3>Matching Wood Sets</h3>
+            <p>Have a DIY project redoing a room in your house? Custom orders allow us to create matching sets to complete your project!</p>
+          </div>
+        </div>
+      </section>
+    </>
   )
 }
 
