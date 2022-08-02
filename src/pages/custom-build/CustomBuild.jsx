@@ -116,7 +116,7 @@ function CustomBuild() {
     <section className='custom-build container' id='custom-build'>
       <h1 className='section-title'>Custom Build</h1>
       <p className='section-description'>Have a custom build that you're looking for? Fill out the form below to get started!</p>
-      <HashLink to='/#gallery' className='custom-build__gallery-link'>Check out my work</HashLink>
+      {/* <HashLink to='/#gallery' className='custom-build__gallery-link'>Check out my work</HashLink> */}
       <form className='custom-build__form' onSubmit={onSubmit}>
         <input type="text" id='name' name="user_name" placeholder='Name' onChange={onChange} value={name} />
         <input type="email" id='email' name="email" placeholder='Email' onChange={onChange} value={email} />
@@ -125,6 +125,9 @@ function CustomBuild() {
         <input type='file' className='file-input' id='images' max='2' accept='.jpg,.png,.jpeg' multiple onChange={onChange} />
         <button type='submit' className='custom-build__form-button'>Submit</button>
       </form>
+      <div className="custom-build__why-block">
+        <h2>Why Custom?</h2>
+      </div>
     </section>
   )
 }
