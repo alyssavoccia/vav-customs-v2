@@ -136,13 +136,13 @@ function CustomBuild() {
           </div>
           <div className="why-block__section-text">
             <h3>Uniquely Yours</h3>
-            <p>While we do offer pre-made pieces, this option allows you to order a fully custom piece exactly how you want, with no two pieces being the same. The options are endless as you are able to specify type of wood and duotone, and specifications to name a few. Have a picture of a piece of furniture or item that you want to draw inspiration from? You are able to upload it and tell us why you like it and how you want it incorporated into your piece!</p>
+            <p>If you're not looking for a pre-made piece, this option allows you to order a fully custom piece exactly how you want. This means no two pieces will be the same, giving you a unique piece for your home. The options are endless as you are able to specify type of wood and duotone, and specifications to name a few. Have a picture of a piece of furniture or item that you want to draw inspiration from? You are able to upload it and tell us why you like it and how you want it incorporated into your piece!</p>
           </div>
         </div>
         <div className="why-block__section">
           <div className="why-block__section-text move-bottom">
             <h3>More Options for Pieces</h3>
-            <p>Our store offers a wide variety of pre-made peieces, however, you might not find exactly what you're looking for. A custom order allows us to create pieces that you wouldn't otherwise find in our store because they are a specialized item.</p>
+            <p>Our store offers a wide variety of pre-made peieces, however, you might not find exactly what you're looking for. A custom order allows us to create pieces that you wouldn't otherwise find in our store because they are a specialized item.</p> {/* WORK ON */}
           </div>
           <div className="why-block__section-img">
             <img src='/assets/grid-images/vanity1.jpg' alt='Custom wood coffee table' />
@@ -154,7 +154,7 @@ function CustomBuild() {
           </div>
           <div className="why-block__section-text">
             <h3>Matching Wood Sets</h3>
-            <p>Have a DIY project redoing a part of your house? Custom orders allow us to create matching sets to help you complete your project! We're able to create pieces of the same style to seamlessly fit together.</p>
+            <p>Are you working on a DIY project redoing a part of your house? Custom orders allow us to create matching sets to help you complete your project! You're able to receive pieces of the same style to seamlessly fit together, completing your space.</p> {/* WORK ON */}
           </div>
         </div>
       </section>
